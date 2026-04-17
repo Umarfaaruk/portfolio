@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmmed Umar Faaruk — AI Developer </title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090e;
+      --surface: #111118;
+      --card: #16161f;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-h: rgba(255, 255, 255, 0.15);
+      --accent: #6c63ff;
+      --teal: #34d9b3;
+      --text: #eeedf8;
+      --muted: #7a798e;
+      --subtle: #2a2a38;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15.5px;
+      line-height: 1.75;
+      overflow-x: hidden
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 6vw;
+      background: rgba(9, 9, 14, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text)
+    }
+
+    .nav-logo span {
+      color: var(--accent)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s
+    }
+
+    .nav-links a:hover {
+      color: var(--text)
+    }
+
+    @media(max-width:640px) {
+      .nav-links {
+        display: none
+      }
+    }
+
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem
+    }
+
+    .nav-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: color 0.2s, border-color 0.2s, transform 0.2s
+    }
+
+    .nav-icon:hover {
+      color: var(--text);
+      border-color: var(--border-h);
+      transform: translateY(-1px)
+    }
+
+    .nav-icon svg {
+      width: 16px;
+      height: 16px
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 6vw 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(ellipse 70% 55% at 65% 15%, rgba(108, 99, 255, 0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 15% 85%, rgba(52, 217, 179, 0.04) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: blink 2s infinite
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.3
+      }
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+
+    h1 .role {
+      display: block;
+      color: var(--accent)
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 500px;
+      font-weight: 300;
+      margin-bottom: 2.2rem;
+      line-height: 1.85
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap
+    }
+
+    .btn-p {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.2s, transform 0.2s
+    }
+
+    .btn-p:hover {
+      opacity: 0.82;
+      transform: translateY(-1px)
+    }
+
+    .btn-g {
+      background: transparent;
+      color: var(--text);
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s
+    }
+
+    .btn-g:hover {
+      border-color: var(--border-h);
+      transform: translateY(-1px)
+    }
+
+    .stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      flex-wrap: wrap
+    }
+
+    .sv {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800
+    }
+
+    .sl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1px
+    }
+
+    hr.div {
+      border: none;
+      border-top: 1px solid var(--border)
+    }
+
+    section {
+      padding: 5rem 6vw
+    }
+
+    .ey {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 0.88rem;
+      max-width: 460px;
+      margin-bottom: 2.5rem
+    }
+
+    /* ABOUT */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 3rem;
+      align-items: start
+    }
+
+    @media(max-width:768px) {
+      .about-wrap {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.8rem
+    }
+
+    .pname {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem
+    }
+
+    .ptitle {
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem
+    }
+
+    .ptags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px
+    }
+
+    .ptag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px
+    }
+
+    .pmeta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.9;
+      border-top: 1px solid var(--border);
+      padding-top: 1.1rem;
+      margin-top: 1.2rem
+    }
+
+    .pmeta a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    .atext p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.85;
+      margin-bottom: 1rem
+    }
+
+    .atext strong {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    .irows {
+      margin-top: 1.5rem
+    }
+
+    .irow {
+      display: flex;
+      gap: 1rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem
+    }
+
+    .irow:last-child {
+      border-bottom: none
+    }
+
+    .ik {
+      color: var(--muted);
+      min-width: 80px;
+      font-size: 0.75rem
+    }
+
+    /* SKILLS */
+    .sk-surface {
+      background: var(--surface)
+    }
+
+    .sk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.3rem
+    }
+
+    .sk-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+      transition: border-color 0.2s
+    }
+
+    .sk-block:hover {
+      border-color: var(--border-h)
+    }
+
+    .sk-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem
+    }
+
+    .sk-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px
+    }
+
+    .sp {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.68rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 100px
+    }
+
+    /* EXPERIENCE */
+    .exp-list {
+      margin-top: 0.3rem
+    }
+
+    .exp-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 1.5rem;
+      margin-bottom: 0.9rem;
+      transition: border-color 0.2s
+    }
+
+    .exp-block:hover {
+      border-color: var(--border-h)
+    }
+
+    .exp-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem
+    }
+
+    .exp-co {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700
+    }
+
+    .exp-role {
+      color: var(--accent);
+      font-size: 0.78rem;
+      margin-top: 2px
+    }
+
+    .exp-badge {
+      background: rgba(108, 99, 255, 0.09);
+      border: 1px solid rgba(108, 99, 255, 0.18);
+      color: #9d96ff;
+      font-size: 0.7rem;
+      padding: 0.18rem 0.65rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      height: fit-content
+    }
+
+    .exp-pts {
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.82rem
+    }
+
+    .exp-pts li {
+      padding: 0.22rem 0 0.22rem 1rem;
+      position: relative
+    }
+
+    .exp-pts li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--subtle)
+    }
+
+    /* PROJECTS */
+    .proj-surface {
+      background: var(--surface)
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.3rem
+    }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: border-color 0.2s, transform 0.2s
+    }
+
+    .proj-card:hover {
+      border-color: var(--border-h);
+      transform: translateY(-2px)
+    }
+
+    .proj-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .proj-type {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--teal)
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 6px
+    }
+
+    .plink {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s
+    }
+
+    .plink:hover {
+      border-color: var(--border-h);
+      color: var(--text)
+    }
+
+    .plink svg {
+      width: 10px;
+      height: 10px;
+      fill: currentColor;
+      flex-shrink: 0
+    }
+
+    .proj-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.93rem;
+      font-weight: 700
+    }
+
+    .proj-card p {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.7
+    }
+
+    .proj-met {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0.65rem 0.9rem;
+      background: rgba(108, 99, 255, 0.05);
+      border: 1px solid rgba(108, 99, 255, 0.1);
+      border-radius: 8px
+    }
+
+    .pmv {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent)
+    }
+
+    .pmn {
+      font-size: 0.63rem;
+      color: var(--muted);
+      margin-top: 1px
+    }
+
+    .ptags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: auto;
+      padding-top: 0.2rem
+    }
+
+    .pt {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px
+    }
+
+    /* CERTS */
+    .c-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.3rem
+    }
+
+    .c-row {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      transition: border-color 0.2s
+    }
+
+    .c-row:hover {
+      border-color: var(--border-h)
+    }
+
+    .c-ico {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      flex-shrink: 0;
+      background: rgba(52, 217, 179, 0.07);
+      border: 1px solid rgba(52, 217, 179, 0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px
+    }
+
+    .cn {
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 1.35
+    }
+
+    .co {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 2px
+    }
+
+    /* CONTACT */
+    .ct-surface {
+      background: var(--surface)
+    }
+
+    .ct-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .ct-wrap p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 2rem
+    }
+
+    .ct-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem
+    }
+
+    .clink {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 9px;
+      font-size: 0.82rem;
+      transition: border-color 0.2s, transform 0.15s
+    }
+
+    .clink:hover {
+      border-color: var(--border-h);
+      transform: translateY(-1px)
+    }
+
+    .clink svg {
+      width: 15px;
+      height: 15px;
+      fill: var(--accent)
+    }
+
+    footer {
+      padding: 1.5rem 6vw;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.75rem
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease
+    }
+
+    .revealed {
+      opacity: 1;
+      transform: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-logo">Umar Faaruk </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="https://www.linkedin.com/in/mahmmedumar-faaruk" target="_blank" class="nav-icon" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+        </svg>
+      </a>
+      <a href="https://github.com/Umarfaaruk" target="_blank" class="nav-icon" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>
+        <span>Mahmmed Umar Faaruk</span>
+        <span class="role">AI Developer </span>
+      </h1>
+      <p class="hero-desc">Building intelligent systems — from India's first Telugu LLM to real-time fire detection. Specializing in Deep Learning, NLP, and production AI deployment.</p>
+      <div class="actions">
+        <a href="#projects" class="btn-p">View Projects</a>
+        <a href="#contact" class="btn-g">Contact Me</a>
+      </div>
+  </section>
+  <hr class="div" />
+  <section id="about">
+    <div class="about-wrap">
+      <div>
+        <div class="ey">About</div>
+        <h2>Profile</h2>
+        <div class="profile-card">
+          <div class="pname">Mahmmed Umar Faaruk</div>
+          <div class="ptitle">AI Developer </div>
+          <div class="ptags">
+            <span class="ptag">Machine Learning</span><span class="ptag">Deep Learning</span>
+            <span class="ptag">NLP</span><span class="ptag">Computer Vision</span>
+            <span class="ptag">AWS</span><span class="ptag">FastAPI</span>
+            <span class="ptag">LLMs</span><span class="ptag">Python</span>
+          </div>
+          <div class="pmeta">
+            B.Tech AIML · Sreyas Institute of Engineering &amp; Technology, Hyderabad<br>
+          </div>
+        </div>
+      </div>
+      <div class="atext">
+        <p>I'm an AI Developer passionate about building end-to-end intelligent systems. I contributed to
+          <strong>India's first Telugu Large Language Model</strong> — a joint initiative with Swecha, IIIT Hyderabad,
+          and Meta.
+        </p>
+        <p>My work spans deep learning, federated learning, computer vision, and cloud-native deployment. I focus on
+          taking research-grade models into production — including offline-first systems designed for rural,
+          low-connectivity environments.</p>
+        <p>I've published research on deep learning for fire and smoke detection, accepted for the <strong>AI
+            Healthcare</strong> book (In Press, 2025).</p>
+        <div class="irows">
+          <div class="irow"><span class="ik">Location</span><span>Hyderabad, Telangana, India</span></div>
+          <div class="irow"><span class="ik">Email</span><span>umarfaaruk154246@gmail.com</span></div>
+          <div class="irow"><span class="ik">Published</span><span>AI Healthcare Book · In Press, 2025</span></div>
+          <div class="irow"><span class="ik">Articles</span><span>NumPy Basics · Mastering Python Functions
+              (2026)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="div" />
+
+  <section id="skills" class="sk-surface">
+    <div class="ey">Expertise</div>
+    <h2>Technical Skills</h2>
+    <p class="sub">A full-stack AI skill set — from model design to cloud deployment.</p>
+    <div class="sk-grid">
+      <div class="sk-block reveal">
+        <div class="sk-name">Python</div>
+        <div class="sk-pills"><span class="sp">Pandas</span><span class="sp">NumPy</span><span
+            class="sp">Streamlit</span><span class="sp">FastAPI</span><span class="sp">Django</span><span
+            class="sp">Matplotlib</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-name">Machine Learning</div>
+        <div class="sk-pills"><span class="sp">Supervised</span><span class="sp">Unsupervised</span><span
+            class="sp">SVM</span><span class="sp">Decision Trees</span><span class="sp">K-NN</span><span
+            class="sp">Naive Bayes</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-name">Deep Learning</div>
+        <div class="sk-pills"><span class="sp">PyTorch</span><span class="sp">CNN</span><span
+            class="sp">LSTM</span><span class="sp">Transfer Learning</span><span class="sp">Federated Learning</span>
+        </div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-name">NLP &amp; Generative AI</div>
+        <div class="sk-pills"><span class="sp">LLMs</span><span class="sp">LangChain</span><span
+            class="sp">Dify.ai</span><span class="sp">TF-IDF</span><span class="sp">Prompt Engineering</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-name">Computer Vision</div>
+        <div class="sk-pills"><span class="sp">YOLOv11</span><span class="sp">OpenCV</span><span class="sp">Object
+            Detection</span><span class="sp">Image Classification</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-name">Cloud &amp; Deployment</div>
+        <div class="sk-pills"><span class="sp">AWS (ap-south-1)</span><span class="sp">Render</span><span
+            class="sp">Streamlit Cloud</span><span class="sp">Supabase</span><span class="sp">PostgreSQL</span><span
+            class="sp">Git</span></div>
+      </div>
+    </div>
+  </section>
+  <hr class="div" />
+
+  <section id="experience">
+    <div class="ey">Career</div>
+    <h2>Work Experience</h2>
+    <div class="exp-list">
+      <div class="exp-block reveal">
+        <div class="exp-head">
+          <div>
+            <div class="exp-co">Viswam AI</div>
+            <div class="exp-role">AI Developer Intern · Swecha × IIIT Hyderabad × Meta</div>
+          </div>
+          <span class="exp-badge">May 2025 – Jul 2025</span>
+        </div>
+        <ul class="exp-pts">
+          <li>Contributed to India's first Telugu LLM — an inclusive AI initiative to preserve regional language
+            technology.</li>
+          <li>Built Tune Buddy AI chatbot by integrating Dify.ai with Streamlit for emotion-based music recommendations.
+          </li>
+          <li>Architected Craft Connect — cloud-integrated platform on AWS + FastAPI + Supabase for documenting Indian
+            handicrafts with offline-sync for rural accessibility.</li>
+          <li>Designed a secure API gateway using FastAPI and HTTPX to protect user credentials and craft data
+            client-side.</li>
+        </ul>
+      </div>
+      <div class="exp-block reveal">
+        <div class="exp-head">
+          <div>
+            <div class="exp-co">Intrainz</div>
+            <div class="exp-role">Web Development Intern</div>
+          </div>
+          <span class="exp-badge">Oct 2024 – Dec 2024</span>
+        </div>
+        <ul class="exp-pts">
+          <li>Designed a responsive hotel landing page and personal portfolio using HTML, CSS, and JavaScript with
+            mobile-first layouts.</li>
+          <li>Built three functional web apps — a calculator, e-commerce storefront, and to-do list manager.</li>
+          <li>Participated in SDLC processes, code reviews, and agile workflows using Git.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <hr class="div" />
+
+  <section id="projects" class="proj-surface">
+    <div class="ey">Work</div>
+    <h2>Projects</h2>
+    <p class="sub">Research-grade models shipped as working applications.</p>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-type">Published · Computer Vision</span>
+          <div class="proj-links">
+            <a href="https://github.com/Umarfaaruk/Fire-and-Smoke-detection" target="_blank" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <h3>Fire &amp; Smoke Detection</h3>
+        <p>Real-time YOLOv11-based detection system for fire and smoke in images and video feeds, with Twilio SMS alerts
+          and comparative mAP/F1 evaluation.</p>
+        <div class="proj-met">
+          <div>
+            <div class="pmv">93.5%</div>
+            <div class="pmn">Accuracy</div>
+          </div>
+          <div>
+            <div class="pmv">60 FPS</div>
+            <div class="pmn">Speed</div>
+          </div>
+          <div>
+            <div class="pmv">YOLOv11</div>
+            <div class="pmn">Model</div>
+          </div>
+        </div>
+        <div class="ptags"><span class="pt">PyTorch</span><span class="pt">YOLOv11</span><span
+            class="pt">OpenCV</span><span class="pt">Twilio</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-type">Research · Cybersecurity</span>
+          <div class="proj-links">
+            <a href="https://github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats" target="_blank" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <h3>Adaptive AI-SIEM</h3>
+        <p>Federated Learning-powered SIEM with Blockchain and Edge Computing for real-time cyber threat detection in
+          IoT environments.</p>
+        <div class="proj-met">
+          <div>
+            <div class="pmv">99%</div>
+            <div class="pmn">Accuracy</div>
+          </div>
+          <div>
+            <div class="pmv">0.01</div>
+            <div class="pmn">False Pos. Rate</div>
+          </div>
+          <div>
+            <div class="pmv">CNN</div>
+            <div class="pmn">Architecture</div>
+          </div>
+        </div>
+        <div class="ptags"><span class="pt">Federated Learning</span><span class="pt">CNN</span><span
+            class="pt">LSTM</span><span class="pt">Blockchain</span><span class="pt">Django</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-type">Live · Full Stack AI</span>
+          <div class="proj-links">
+            <a href="https://craft-connect.streamlit.app" target="_blank" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+              Live
+            </a>
+          </div>
+        </div>
+        <h3>Craft Connect</h3>
+        <p>Cloud-integrated mobile-first platform to document Indian handicrafts. Supabase + FastAPI on AWS with
+          offline-sync for artisans in low-connectivity rural areas.</p>
+        <div class="ptags"><span class="pt">Python</span><span class="pt">Streamlit</span><span
+            class="pt">FastAPI</span><span class="pt">Supabase</span><span class="pt">AWS</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-type">Live · Generative AI</span>
+          <div class="proj-links">
+            <a href="https://tune-buddy.streamlit.app" target="_blank" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+              Live
+            </a>
+          </div>
+        </div>
+        <h3>Tune Buddy</h3>
+        <p>AI chatbot delivering personalized music recommendations based on emotional state, built by integrating
+          Dify.ai into a Streamlit interface.</p>
+        <div class="ptags"><span class="pt">Dify.ai</span><span class="pt">Streamlit</span><span
+            class="pt">LLM</span><span class="pt">Sentiment Analysis</span></div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-type">Live · Game AI</span>
+          <div class="proj-links">
+            <a href="https://chess-buddy.streamlit.app" target="_blank" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+              Live
+            </a>
+          </div>
+        </div>
+        <h3>Chess Buddy</h3>
+        <p>Web-based chess app with Grandmaster-level AI opponent powered by Stockfish. Manages board state, enforces
+          rules, and detects match outcomes via Streamlit.</p>
+        <div class="ptags"><span class="pt">Python</span><span class="pt">Streamlit</span><span
+            class="pt">Stockfish</span><span class="pt">Game AI</span></div>
+      </div>
+
+
+
+    </div>
+  </section>
+  <hr class="div" />
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <p class="sub">Industry simulations, workshops, and recognized learning programs.</p>
+    <div class="c-grid">
+      <div class="c-row reveal">
+        <div class="c-ico">☁️</div>
+        <div>
+          <div class="cn">AWS APAC Solutions Architecture</div>
+          <div class="co">Forage · Jan 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">📊</div>
+        <div>
+          <div class="cn">Tata Data Visualisation Job Simulation</div>
+          <div class="co">Forage · Jul 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🤖</div>
+        <div>
+          <div class="cn">Generative AI Workshop</div>
+          <div class="co">Growth School · Mar 2026</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">💻</div>
+        <div>
+          <div class="cn">Full Stack Web Development Workshop</div>
+          <div class="co">J &T Tech Labs · Jul 2024</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">⚙️</div>
+        <div>
+          <div class="cn">Goldman Sachs Software Engineering</div>
+          <div class="co">Forage · Jul 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🧠</div>
+        <div>
+          <div class="cn">Machine Learning Workshop</div>
+          <div class="co">Innomatics Research Labs · Nov 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🔬</div>
+        <div>
+          <div class="cn">Machine Learning Workshop</div>
+          <div class="co">IEEE Sreyas · Dec 2023</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🐍</div>
+        <div>
+          <div class="cn">Python Programming Certification</div>
+          <div class="co"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="div" />
+
+  <section id="contact" class="ct-surface">
+    <div class="ct-wrap">
+      <div class="ey" style="text-align:center">Connect</div>
+      <h2 style="text-align:center">Let's Work Together</h2>
+      <p style="margin-top:0.5rem">Open to AI roles, research collaborations, and freelance projects.</p>
+      <div class="ct-grid">
+        <a href="mailto:umarfaaruk154246@gmail.com" class="clink">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/mahmmed-umar-faaruk/" target="_blank" class="clink">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Umarfaaruk" target="_blank" class="clink">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Mahmmed Umar Faaruk</span>
+    <span>AI Developer· Hyderabad, India</span>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('revealed') }) }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>
