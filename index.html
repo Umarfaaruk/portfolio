@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmmed Umar Faaruk — AI Developer</title>
+  <meta name="description"
+    content="Mahmmed Umar Faaruk — AI Developer. Building intelligent systems from India's first Telugu LLM to real-time fire detection. Deep Learning, NLP, Computer Vision & production AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #06060b;
+      --surface: #0d0d14;
+      --card: #13131d;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-h: rgba(255, 255, 255, 0.18);
+      --accent: #6c63ff;
+      --accent-2: #8b7bff;
+      --teal: #34d9b3;
+      --pink: #ff6b9d;
+      --text: #eeedf8;
+      --muted: #7a798e;
+      --subtle: #2a2a38;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15.5px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: rgba(108, 99, 255, 0.35);
+      color: #fff;
+    }
+
+    /* ---------- Custom scrollbar ---------- */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--accent), var(--teal));
+      border-radius: 10px;
+    }
+
+    /* ---------- Scroll progress bar ---------- */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      z-index: 200;
+      box-shadow: 0 0 12px rgba(108, 99, 255, 0.7);
+    }
+
+    /* ---------- Preloader ---------- */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.3rem;
+      background: var(--bg);
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+
+    #preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-ring {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 3px solid rgba(108, 99, 255, 0.15);
+      border-top-color: var(--accent);
+      border-right-color: var(--teal);
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+    }
+
+    .loader-text span {
+      color: var(--teal);
+    }
+
+    /* ---------- 3D Canvas background ---------- */
+    #neural-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 6vw;
+      background: rgba(6, 6, 11, 0.7);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #06060b;
+      box-shadow: 0 0 18px rgba(108, 99, 255, 0.5);
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-right: 0.8rem;
+      border-right: 1px solid var(--border);
+      padding-right: 0.8rem;
+    }
+
+    .theme-btn {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: var(--theme-color);
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.25);
+    }
+
+    .theme-btn.active {
+      border-color: var(--text);
+      transform: scale(1.2);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 22px;
+      height: 16px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 150;
+      padding: 0;
+      margin-left: 0.8rem;
+    }
+
+    .nav-toggle span {
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media(max-width:760px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(13, 13, 20, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid var(--border);
+        padding: 6rem 3rem 3rem;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 90;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+    }
+
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-icon:hover {
+      color: var(--text);
+      border-color: var(--border-h);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(108, 99, 255, 0.18);
+    }
+
+    .nav-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 6vw 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border);
+      background: rgba(19, 19, 29, 0.7);
+      backdrop-filter: blur(8px);
+      color: var(--muted);
+      padding: 0.32rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 8px var(--teal);
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 .role {
+      display: block;
+      background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 40%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .typed-wrap {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      color: var(--teal);
+      margin-bottom: 1.4rem;
+      min-height: 1.4em;
+    }
+
+    .typed-wrap .prompt {
+      color: var(--muted);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 9px;
+      height: 1.05em;
+      background: var(--teal);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: caret 1s steps(1) infinite;
+    }
+
+    @keyframes caret {
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      51%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .hero-desc {
+      color: #a3a2b8;
+      font-size: 1rem;
+      max-width: 540px;
+      font-weight: 300;
+      margin-bottom: 2.2rem;
+      line-height: 1.85;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-p {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      padding: 0.72rem 1.6rem;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.86rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.28);
+    }
+
+    .btn-p:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(108, 99, 255, 0.42);
+    }
+
+    .btn-g {
+      background: rgba(19, 19, 29, 0.6);
+      backdrop-filter: blur(8px);
+      color: var(--text);
+      padding: 0.72rem 1.6rem;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.86rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-g:hover {
+      border-color: var(--border-h);
+      transform: translateY(-2px);
+    }
+
+    .stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .sv {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .scroll-mouse {
+      width: 20px;
+      height: 32px;
+      border: 1.5px solid var(--subtle);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .scroll-mouse::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 6px;
+      border-radius: 2px;
+      background: var(--teal);
+      animation: scrolldot 1.6s infinite;
+    }
+
+    @keyframes scrolldot {
+      0% {
+        opacity: 0;
+        top: 6px;
+      }
+
+      40% {
+        opacity: 1;
+      }
+
+      80% {
+        opacity: 0;
+        top: 16px;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 5.5rem 6vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sk-surface,
+    .proj-surface,
+    .ct-surface {
+      background: rgba(13, 13, 20, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .ey {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ey::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 480px;
+      margin-bottom: 2.6rem;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media(max-width:820px) {
+      .about-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tilt {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease;
+      will-change: transform;
+    }
+
+    .profile-card {
+      background: linear-gradient(160deg, rgba(108, 99, 255, 0.07), var(--card));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(52, 217, 179, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #06060b;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 0 28px rgba(108, 99, 255, 0.4);
+      transform: translateZ(40px);
+    }
+
+    .pname {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+      transform: translateZ(28px);
+    }
+
+    .ptitle {
+      color: var(--teal);
+      font-size: 0.84rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      transform: translateZ(22px);
+    }
+
+    .ptags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .ptag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      padding: 0.22rem 0.62rem;
+      border-radius: 100px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .ptag:hover {
+      color: var(--teal);
+      border-color: rgba(52, 217, 179, 0.4);
+    }
+
+    .pmeta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.9;
+      border-top: 1px solid var(--border);
+      padding-top: 1.1rem;
+      margin-top: 1.2rem;
+    }
+
+    .atext p {
+      color: #a3a2b8;
+      font-size: 0.92rem;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .atext strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .atext .hl {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .irows {
+      margin-top: 1.5rem;
+    }
+
+    .irow {
+      display: flex;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.83rem;
+    }
+
+    .irow:last-child {
+      border-bottom: none;
+    }
+
+    .ik {
+      color: var(--muted);
+      min-width: 90px;
+      font-size: 0.75rem;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .sk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .sk-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.3rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sk-block::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(108, 99, 255, 0.13), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .sk-block:hover {
+      border-color: var(--border-h);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .sk-block:hover::after {
+      opacity: 1;
+    }
+
+    .sk-icon {
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .sk-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+    }
+
+    .sk-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .sp {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.68rem;
+      padding: 0.18rem 0.52rem;
+      border-radius: 100px;
+    }
+
+    /* ---------- EXPERIENCE (timeline) ---------- */
+    .exp-list {
+      margin-top: 0.3rem;
+      position: relative;
+      padding-left: 1.6rem;
+    }
+
+    .exp-list::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--teal), transparent);
+    }
+
+    .exp-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+
+    .exp-block::before {
+      content: '';
+      position: absolute;
+      left: -1.6rem;
+      top: 1.9rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 12px var(--accent);
+      transform: translateX(-1px);
+    }
+
+    .exp-block:hover {
+      border-color: var(--border-h);
+      transform: translateX(4px);
+    }
+
+    .exp-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-co {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .exp-role {
+      color: var(--teal);
+      font-size: 0.79rem;
+      margin-top: 2px;
+    }
+
+    .exp-badge {
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      color: #9d96ff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      height: fit-content;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .exp-pts {
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .exp-pts li {
+      padding: 0.24rem 0 0.24rem 1.1rem;
+      position: relative;
+    }
+
+    .exp-pts li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .proj-filters {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 2.2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(19, 19, 29, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .filter-btn:hover {
+      color: var(--text);
+      border-color: var(--border-h);
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 18px rgba(108, 99, 255, 0.25);
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s, opacity 0.4s ease, transform 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .proj-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .proj-card:hover {
+      border-color: var(--border-h);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .proj-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .proj-type {
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .plink {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      padding: 0.22rem 0.62rem;
+      border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .plink:hover {
+      border-color: var(--border-h);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .plink svg {
+      width: 10px;
+      height: 10px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .proj-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .proj-card p {
+      color: var(--muted);
+      font-size: 0.81rem;
+      line-height: 1.7;
+    }
+
+    .proj-met {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0.7rem 0.95rem;
+      background: rgba(108, 99, 255, 0.06);
+      border: 1px solid rgba(108, 99, 255, 0.12);
+      border-radius: 10px;
+    }
+
+    .pmv {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--teal);
+    }
+
+    .pmn {
+      font-size: 0.62rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .pt {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.65rem;
+      padding: 0.16rem 0.52rem;
+      border-radius: 100px;
+    }
+
+    .proj-card .ptags {
+      margin-top: auto;
+      padding-top: 0.2rem;
+    }
+
+    /* ---------- CERTS ---------- */
+    .c-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .c-row {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .c-row:hover {
+      border-color: var(--border-h);
+      transform: translateY(-3px);
+    }
+
+    .c-ico {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      flex-shrink: 0;
+      background: rgba(52, 217, 179, 0.08);
+      border: 1px solid rgba(52, 217, 179, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .cn {
+      font-size: 0.81rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .co {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .ct-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ct-wrap p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .ct-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .clink {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.75rem 1.3rem;
+      border-radius: 10px;
+      font-size: 0.83rem;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .clink:hover {
+      border-color: var(--border-h);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(108, 99, 255, 0.16);
+    }
+
+    .clink svg {
+      width: 15px;
+      height: 15px;
+      fill: var(--teal);
+    }
+
+    footer {
+      padding: 1.6rem 6vw;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      position: relative;
+      z-index: 1;
+      background: var(--bg);
+    }
+
+    /* ---------- reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .revealed {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .tilt {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">INITIALIZING <span>NEURAL NET</span></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- 3D neural network background -->
+  <canvas id="neural-canvas"></canvas>
+
+  <nav>
+    <div class="nav-logo">
+      <span class="logo-mark">UF</span>Umar&nbsp;<span>Faaruk</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-socials">
+      <div class="theme-switcher">
+        <button class="theme-btn active" data-theme="default" title="Neural Purple" style="--theme-color: #6c63ff;"></button>
+        <button class="theme-btn" data-theme="cyberpunk" title="Cyber Orange" style="--theme-color: #ff007f;"></button>
+        <button class="theme-btn" data-theme="matrix" title="Matrix Green" style="--theme-color: #00ff66;"></button>
+        <button class="theme-btn" data-theme="space" title="Deep Space" style="--theme-color: #00bfff;"></button>
+      </div>
+      <a href="https://www.linkedin.com/in/mahmmedumar-faaruk" target="_blank" rel="noopener" class="nav-icon"
+        title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+        </svg>
+      </a>
+      <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="status reveal"><span class="dot"></span> Available for AI roles &amp; research collaborations</div>
+      <h1>
+        <span>Mahmmed Umar Faaruk</span>
+        <span class="role">AI Developer</span>
+      </h1>
+      <div class="typed-wrap"><span class="prompt">$ </span><span id="typed"></span><span class="cursor"></span></div>
+      <p class="hero-desc">I build intelligent systems end-to-end — from <strong style="color:var(--text)">India's first
+          Telugu LLM</strong> to real-time fire &amp; smoke detection. Specializing in Deep Learning, NLP, Computer
+        Vision and production AI deployment.</p>
+      <div class="actions">
+        <a href="#projects" class="btn-p">View Projects</a>
+        <a href="#contact" class="btn-g">Get in Touch →</a>
+      </div>
+      <div class="stats">
+        <div class="reveal">
+          <div class="sv" data-count="6" data-suffix="+">0</div>
+          <div class="sl">AI Projects Shipped</div>
+        </div>
+        <div class="reveal">
+          <div class="sv" data-count="99" data-suffix="%">0</div>
+          <div class="sl">Peak Model Accuracy</div>
+        </div>
+        <div class="reveal">
+          <div class="sv" data-count="1" data-suffix="">0</div>
+          <div class="sl">Published Research</div>
+        </div>
+        <div class="reveal">
+          <div class="sv" data-count="2" data-suffix="">0</div>
+          <div class="sl">Industry Internships</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-mouse"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-wrap">
+      <div>
+        <div class="ey">About</div>
+        <h2>Profile</h2>
+        <div class="profile-card tilt">
+          <div class="avatar">UF</div>
+          <div class="pname">Mahmmed Umar Faaruk</div>
+          <div class="ptitle">AI Developer · Hyderabad, India</div>
+          <div class="ptags">
+            <span class="ptag">Machine Learning</span><span class="ptag">Deep Learning</span>
+            <span class="ptag">NLP</span><span class="ptag">Computer Vision</span>
+            <span class="ptag">AWS</span><span class="ptag">FastAPI</span>
+            <span class="ptag">LLMs</span><span class="ptag">Python</span>
+          </div>
+          <div class="pmeta">
+            🎓 B.Tech AIML · Sreyas Institute of Engineering &amp; Technology, Hyderabad
+          </div>
+        </div>
+      </div>
+      <div class="atext">
+        <p>I'm an AI Developer passionate about building end-to-end intelligent systems. I contributed to
+          <span class="hl">India's first Telugu Large Language Model</span> — a joint initiative with Swecha, IIIT
+          Hyderabad, and Meta.
+        </p>
+        <p>My work spans <strong>deep learning, federated learning, computer vision, and cloud-native deployment</strong>.
+          I focus on taking research-grade models into production — including offline-first systems designed for rural,
+          low-connectivity environments.</p>
+        <p>I've published research on deep learning for fire and smoke detection, accepted for the
+          <strong>AI Healthcare</strong> book (In Press, 2025).</p>
+        <div class="irows">
+          <div class="irow reveal"><span class="ik">Location</span><span>Hyderabad, Telangana, India</span></div>
+          <div class="irow reveal"><span class="ik">Email</span><span>umarfaaruk154246@gmail.com</span></div>
+          <div class="irow reveal"><span class="ik">Education</span><span>B.Tech AIML · Sreyas Institute of Engg. &amp;
+              Tech.</span></div>
+          <div class="irow reveal"><span class="ik">Published</span><span>AI Healthcare Book · In Press, 2025</span></div>
+          <div class="irow reveal"><span class="ik">Articles</span><span>NumPy Basics · Mastering Python Functions
+              (2026)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="sk-surface">
+    <div class="ey">Expertise</div>
+    <h2>Technical Skills</h2>
+    <p class="sub">A full-stack AI skill set — from model design to cloud deployment.</p>
+    <div class="sk-grid">
+      <div class="sk-block reveal">
+        <div class="sk-icon">🐍</div>
+        <div class="sk-name">Python</div>
+        <div class="sk-pills"><span class="sp">Pandas</span><span class="sp">NumPy</span><span
+            class="sp">Streamlit</span><span class="sp">FastAPI</span><span class="sp">Django</span><span
+            class="sp">Matplotlib</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-icon">📈</div>
+        <div class="sk-name">Machine Learning</div>
+        <div class="sk-pills"><span class="sp">Supervised</span><span class="sp">Unsupervised</span><span
+            class="sp">SVM</span><span class="sp">Decision Trees</span><span class="sp">K-NN</span><span
+            class="sp">Naive Bayes</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-icon">🧠</div>
+        <div class="sk-name">Deep Learning</div>
+        <div class="sk-pills"><span class="sp">PyTorch</span><span class="sp">CNN</span><span
+            class="sp">LSTM</span><span class="sp">Transfer Learning</span><span class="sp">Federated Learning</span>
+        </div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-icon">💬</div>
+        <div class="sk-name">NLP &amp; Generative AI</div>
+        <div class="sk-pills"><span class="sp">LLMs</span><span class="sp">LangChain</span><span
+            class="sp">Dify.ai</span><span class="sp">TF-IDF</span><span class="sp">Prompt Engineering</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-icon">👁️</div>
+        <div class="sk-name">Computer Vision</div>
+        <div class="sk-pills"><span class="sp">YOLOv11</span><span class="sp">OpenCV</span><span class="sp">Object
+            Detection</span><span class="sp">Image Classification</span></div>
+      </div>
+      <div class="sk-block reveal">
+        <div class="sk-icon">☁️</div>
+        <div class="sk-name">Cloud &amp; Deployment</div>
+        <div class="sk-pills"><span class="sp">AWS (ap-south-1)</span><span class="sp">Render</span><span
+            class="sp">Streamlit Cloud</span><span class="sp">Supabase</span><span class="sp">PostgreSQL</span><span
+            class="sp">Git</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="ey">Career</div>
+    <h2>Work Experience</h2>
+    <p class="sub">Hands-on AI engineering across research-grade and product teams.</p>
+    <div class="exp-list">
+      <div class="exp-block reveal">
+        <div class="exp-head">
+          <div>
+            <div class="exp-co">Viswam AI</div>
+            <div class="exp-role">AI Developer Intern · Swecha × IIIT Hyderabad × Meta</div>
+          </div>
+          <span class="exp-badge">May 2025 – Jul 2025</span>
+        </div>
+        <ul class="exp-pts">
+          <li>Contributed to India's first Telugu LLM — an inclusive AI initiative to preserve regional language
+            technology.</li>
+          <li>Built Tune Buddy AI chatbot by integrating Dify.ai with Streamlit for emotion-based music recommendations.
+          </li>
+          <li>Architected Craft Connect — cloud-integrated platform on AWS + FastAPI + Supabase for documenting Indian
+            handicrafts with offline-sync for rural accessibility.</li>
+          <li>Designed a secure API gateway using FastAPI and HTTPX to protect user credentials and craft data
+            client-side.</li>
+        </ul>
+      </div>
+      <div class="exp-block reveal">
+        <div class="exp-head">
+          <div>
+            <div class="exp-co">Intrainz</div>
+            <div class="exp-role">Web Development Intern</div>
+          </div>
+          <span class="exp-badge">Oct 2024 – Dec 2024</span>
+        </div>
+        <ul class="exp-pts">
+          <li>Designed a responsive hotel landing page and personal portfolio using HTML, CSS, and JavaScript with
+            mobile-first layouts.</li>
+          <li>Built three functional web apps — a calculator, e-commerce storefront, and to-do list manager.</li>
+          <li>Participated in SDLC processes, code reviews, and agile workflows using Git.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="proj-surface">
+    <div class="ey">Work</div>
+    <h2>Featured Projects</h2>
+    <p class="sub">Research-grade models shipped as working applications.</p>
+    
+    <div class="proj-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="cv-ml">ML &amp; Vision</button>
+      <button class="filter-btn" data-filter="nlp-genai">NLP &amp; GenAI</button>
+      <button class="filter-btn" data-filter="fullstack-game">Full Stack &amp; Apps</button>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card reveal tilt" data-category="cv-ml">
+        <div class="proj-top">
+          <span class="proj-type">Published · Computer Vision</span>
+          <div class="proj-links">
+            <a href="https://github.com/Umarfaaruk/Fire-and-Smoke-detection" target="_blank" rel="noopener" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <h3>Fire &amp; Smoke Detection</h3>
+        <p>Real-time YOLOv11-based detection system for fire and smoke in images and video feeds, with Twilio SMS alerts
+          and comparative mAP/F1 evaluation.</p>
+        <div class="proj-met">
+          <div>
+            <div class="pmv">93.5%</div>
+            <div class="pmn">Accuracy</div>
+          </div>
+          <div>
+            <div class="pmv">60 FPS</div>
+            <div class="pmn">Speed</div>
+          </div>
+          <div>
+            <div class="pmv">YOLOv11</div>
+            <div class="pmn">Model</div>
+          </div>
+        </div>
+        <div class="ptags"><span class="pt">PyTorch</span><span class="pt">YOLOv11</span><span
+            class="pt">OpenCV</span><span class="pt">Twilio</span></div>
+      </div>
+
+      <div class="proj-card reveal tilt" data-category="cv-ml">
+        <div class="proj-top">
+          <span class="proj-type">Research · Cybersecurity</span>
+          <div class="proj-links">
+            <a href="https://github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats" target="_blank" rel="noopener"
+              class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <h3>Adaptive AI-SIEM</h3>
+        <p>Federated Learning-powered SIEM with Blockchain and Edge Computing for real-time cyber threat detection in
+          IoT environments.</p>
+        <div class="proj-met">
+          <div>
+            <div class="pmv">99%</div>
+            <div class="pmn">Accuracy</div>
+          </div>
+          <div>
+            <div class="pmv">0.01</div>
+            <div class="pmn">False Pos. Rate</div>
+          </div>
+          <div>
+            <div class="pmv">CNN</div>
+            <div class="pmn">Architecture</div>
+          </div>
+        </div>
+        <div class="ptags"><span class="pt">Federated Learning</span><span class="pt">CNN</span><span
+            class="pt">LSTM</span><span class="pt">Blockchain</span><span class="pt">Django</span></div>
+      </div>
+
+      <div class="proj-card reveal tilt" data-category="fullstack-game">
+        <div class="proj-top">
+          <span class="proj-type">Live · Full Stack AI</span>
+          <div class="proj-links">
+            <a href="https://craft-connect.streamlit.app" target="_blank" rel="noopener" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+              Live
+            </a>
+          </div>
+        </div>
+        <h3>Craft Connect</h3>
+        <p>Cloud-integrated mobile-first platform to document Indian handicrafts. Supabase + FastAPI on AWS with
+          offline-sync for artisans in low-connectivity rural areas.</p>
+        <div class="ptags"><span class="pt">Python</span><span class="pt">Streamlit</span><span
+            class="pt">FastAPI</span><span class="pt">Supabase</span><span class="pt">AWS</span></div>
+      </div>
+
+      <div class="proj-card reveal tilt" data-category="nlp-genai">
+        <div class="proj-top">
+          <span class="proj-type">Live · Generative AI</span>
+          <div class="proj-links">
+            <a href="https://tune-buddy.streamlit.app" target="_blank" rel="noopener" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+              Live
+            </a>
+          </div>
+        </div>
+        <h3>Tune Buddy</h3>
+        <p>AI chatbot delivering personalized music recommendations based on emotional state, built by integrating
+          Dify.ai into a Streamlit interface.</p>
+        <div class="ptags"><span class="pt">Dify.ai</span><span class="pt">Streamlit</span><span
+            class="pt">LLM</span><span class="pt">Sentiment Analysis</span></div>
+      </div>
+
+      <div class="proj-card reveal tilt" data-category="fullstack-game">
+        <div class="proj-top">
+          <span class="proj-type">Live · Game AI</span>
+          <div class="proj-links">
+            <a href="https://chess-buddy.streamlit.app" target="_blank" rel="noopener" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+              </svg>
+              Live
+            </a>
+          </div>
+        </div>
+        <h3>Chess Buddy</h3>
+        <p>Web-based chess app with Grandmaster-level AI opponent powered by Stockfish. Manages board state, enforces
+          rules, and detects match outcomes via Streamlit.</p>
+        <div class="ptags"><span class="pt">Python</span><span class="pt">Streamlit</span><span
+            class="pt">Stockfish</span><span class="pt">Game AI</span></div>
+      </div>
+
+      <div class="proj-card reveal tilt" data-category="nlp-genai">
+        <div class="proj-top">
+          <span class="proj-type">Initiative · NLP</span>
+          <div class="proj-links">
+            <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="plink">
+              <svg viewBox="0 0 16 16">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <h3>Telugu LLM</h3>
+        <p>Contributed to India's first Telugu Large Language Model — a national open initiative with Swecha, IIIT
+          Hyderabad &amp; Meta to bring regional languages into modern AI.</p>
+        <div class="ptags"><span class="pt">LLMs</span><span class="pt">NLP</span><span class="pt">Data
+            Pipeline</span><span class="pt">Open Source</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="ey">Credentials</div>
+    <h2>Certifications</h2>
+    <p class="sub">Industry simulations, workshops, and recognized learning programs.</p>
+    <div class="c-grid">
+      <div class="c-row reveal">
+        <div class="c-ico">☁️</div>
+        <div>
+          <div class="cn">AWS APAC Solutions Architecture</div>
+          <div class="co">Forage · Jan 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">📊</div>
+        <div>
+          <div class="cn">Tata Data Visualisation Job Simulation</div>
+          <div class="co">Forage · Jul 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🤖</div>
+        <div>
+          <div class="cn">Generative AI Workshop</div>
+          <div class="co">Growth School · Mar 2026</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">💻</div>
+        <div>
+          <div class="cn">Full Stack Web Development Workshop</div>
+          <div class="co">J &amp; T Tech Labs · Jul 2024</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">⚙️</div>
+        <div>
+          <div class="cn">Goldman Sachs Software Engineering</div>
+          <div class="co">Forage · Jul 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🧠</div>
+        <div>
+          <div class="cn">Machine Learning Workshop</div>
+          <div class="co">Innomatics Research Labs · Nov 2025</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🔬</div>
+        <div>
+          <div class="cn">Machine Learning Workshop</div>
+          <div class="co">IEEE Sreyas · Dec 2023</div>
+        </div>
+      </div>
+      <div class="c-row reveal">
+        <div class="c-ico">🐍</div>
+        <div>
+          <div class="cn">Python Programming Certification</div>
+          <div class="co">Certified</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="ct-surface">
+    <div class="ct-wrap">
+      <div class="ey" style="justify-content:center">Connect</div>
+      <h2 style="text-align:center">Let's Work Together</h2>
+      <p style="margin-top:0.5rem">Open to AI roles, research collaborations, and freelance projects. Let's build
+        something intelligent.</p>
+      <div class="ct-grid">
+        <a href="mailto:umarfaaruk154246@gmail.com" class="clink">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/mahmmedumar-faaruk" target="_blank" rel="noopener" class="clink">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="clink">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Mahmmed Umar Faaruk</span>
+    <span>Designed &amp; built with Three.js · AI Developer, Hyderabad 🇮🇳</span>
+  </footer>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    /* ============================================================
+       3D NEURAL NETWORK BACKGROUND  (Three.js)
+       Floating nodes + dynamic connections, mouse-reactive parallax.
+       Thematically: a living neural net for an AI developer.
+    ============================================================ */
+    (function () {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const canvas = document.getElementById('neural-canvas');
+      if (!window.THREE) { canvas.style.background = 'radial-gradient(ellipse at 65% 15%, rgba(108,99,255,0.08), transparent 60%)'; return; }
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x06060b, 0.055);
+
+      const camera = new THREE.PerspectiveCamera(62, innerWidth / innerHeight, 0.1, 100);
+      camera.position.z = 16;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setSize(innerWidth, innerHeight);
+
+      // ---- Build nodes ----
+      const isMobile = innerWidth < 720;
+      const NODE_COUNT = isMobile ? 60 : 130;
+      const SPREAD = 26;
+      const nodes = [];
+      const posArr = new Float32Array(NODE_COUNT * 3);
+      const colArr = new Float32Array(NODE_COUNT * 3);
+
+      const cAccent = new THREE.Color(0x6c63ff);
+      const cTeal = new THREE.Color(0x34d9b3);
+      const cPink = new THREE.Color(0xff6b9d);
+
+      for (let i = 0; i < NODE_COUNT; i++) {
+        const v = new THREE.Vector3(
+          (Math.random() - 0.5) * SPREAD,
+          (Math.random() - 0.5) * SPREAD,
+          (Math.random() - 0.5) * (SPREAD * 0.7)
+        );
+        const vel = new THREE.Vector3(
+          (Math.random() - 0.5) * 0.012,
+          (Math.random() - 0.5) * 0.012,
+          (Math.random() - 0.5) * 0.012
+        );
+        nodes.push({ v, vel });
+        posArr[i * 3] = v.x; posArr[i * 3 + 1] = v.y; posArr[i * 3 + 2] = v.z;
+
+        const t = Math.random();
+        const col = t < 0.6 ? cAccent.clone().lerp(cTeal, Math.random())
+          : (t < 0.85 ? cTeal.clone() : cPink.clone());
+        colArr[i * 3] = col.r; colArr[i * 3 + 1] = col.g; colArr[i * 3 + 2] = col.b;
+      }
+
+      // ---- Points (glowing nodes) ----
+      const sprite = (function () {
+        const c = document.createElement('canvas'); c.width = c.height = 64;
+        const g = c.getContext('2d');
+        const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+        grd.addColorStop(0, 'rgba(255,255,255,1)');
+        grd.addColorStop(0.25, 'rgba(255,255,255,0.85)');
+        grd.addColorStop(1, 'rgba(255,255,255,0)');
+        g.fillStyle = grd; g.fillRect(0, 0, 64, 64);
+        const tex = new THREE.CanvasTexture(c); return tex;
+      })();
+
+      const pGeo = new THREE.BufferGeometry();
+      pGeo.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
+      pGeo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
+      const pMat = new THREE.PointsMaterial({
+        size: 0.55, map: sprite, vertexColors: true,
+        transparent: true, opacity: 0.95, depthWrite: false,
+        blending: THREE.AdditiveBlending, sizeAttenuation: true
+      });
+      const points = new THREE.Points(pGeo, pMat);
+      scene.add(points);
+
+      // ---- Lines (synapses) ----
+      const MAX_LINES = NODE_COUNT * 8;
+      const linePos = new Float32Array(MAX_LINES * 6);
+      const lineCol = new Float32Array(MAX_LINES * 6);
+      const lGeo = new THREE.BufferGeometry();
+      lGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+      lGeo.setAttribute('color', new THREE.BufferAttribute(lineCol, 3));
+      const lMat = new THREE.LineBasicMaterial({
+        vertexColors: true, transparent: true, opacity: 0.5,
+        blending: THREE.AdditiveBlending, depthWrite: false
+      });
+      const lines = new THREE.LineSegments(lGeo, lMat);
+      scene.add(lines);
+
+      const LINK_DIST = isMobile ? 5.0 : 4.6;
+      const group = new THREE.Group();
+      group.add(points); group.add(lines);
+      scene.remove(points); scene.remove(lines);
+      scene.add(group);
+
+      // ---- Pointer parallax ----
+      const target = { x: 0, y: 0 };
+      const cur = { x: 0, y: 0 };
+      window.addEventListener('pointermove', e => {
+        target.x = (e.clientX / innerWidth - 0.5);
+        target.y = (e.clientY / innerHeight - 0.5);
+      });
+
+      function rebuildLines() {
+        let n = 0;
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const a = nodes[i].v;
+          for (let j = i + 1; j < NODE_COUNT; j++) {
+            const b = nodes[j].v;
+            const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+            const d2 = dx * dx + dy * dy + dz * dz;
+            if (d2 < LINK_DIST * LINK_DIST && n < MAX_LINES) {
+              const k = n * 6;
+              linePos[k] = a.x; linePos[k + 1] = a.y; linePos[k + 2] = a.z;
+              linePos[k + 3] = b.x; linePos[k + 4] = b.y; linePos[k + 5] = b.z;
+              const fade = 1 - Math.sqrt(d2) / LINK_DIST;
+              const ci = i * 3, cj = j * 3;
+              lineCol[k] = colArr[ci] * fade; lineCol[k + 1] = colArr[ci + 1] * fade; lineCol[k + 2] = colArr[ci + 2] * fade;
+              lineCol[k + 3] = colArr[cj] * fade; lineCol[k + 4] = colArr[cj + 1] * fade; lineCol[k + 5] = colArr[cj + 2] * fade;
+              n++;
+            }
+          }
+        }
+        lGeo.setDrawRange(0, n * 2);
+        lGeo.attributes.position.needsUpdate = true;
+        lGeo.attributes.color.needsUpdate = true;
+      }
+
+      let frame = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        frame++;
+
+        // drift nodes
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const nd = nodes[i];
+          nd.v.add(nd.vel);
+          ['x', 'y', 'z'].forEach(ax => {
+            const lim = ax === 'z' ? SPREAD * 0.35 : SPREAD * 0.5;
+            if (nd.v[ax] > lim || nd.v[ax] < -lim) nd.vel[ax] *= -1;
+          });
+          posArr[i * 3] = nd.v.x; posArr[i * 3 + 1] = nd.v.y; posArr[i * 3 + 2] = nd.v.z;
+        }
+        pGeo.attributes.position.needsUpdate = true;
+
+        // recompute connections (every other frame for perf)
+        if (frame % 2 === 0) rebuildLines();
+
+        // smooth parallax + gentle auto-rotate
+        cur.x += (target.x - cur.x) * 0.04;
+        cur.y += (target.y - cur.y) * 0.04;
+        group.rotation.y = cur.x * 0.6 + frame * 0.0006;
+        group.rotation.x = cur.y * 0.4;
+        camera.position.x = cur.x * 3;
+        camera.position.y = -cur.y * 3;
+        camera.lookAt(scene.position);
+
+        renderer.render(scene, camera);
+      }
+      rebuildLines();
+      if (!reduceMotion) animate(); else renderer.render(scene, camera);
+
+      window.addEventListener('resize', () => {
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(innerWidth, innerHeight);
+      });
+
+      // Dynamic color update function for accent themes
+      window.updateNeuralColors = function (nodesColors) {
+        if (!nodesColors || nodesColors.length < 3) return;
+        const cAccentVal = new THREE.Color(nodesColors[0]);
+        const cTealVal = new THREE.Color(nodesColors[1]);
+        const cPinkVal = new THREE.Color(nodesColors[2]);
+
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const t = Math.random();
+          const col = t < 0.6 ? cAccentVal.clone().lerp(cTealVal, Math.random())
+            : (t < 0.85 ? cTealVal.clone() : cPinkVal.clone());
+          colArr[i * 3] = col.r;
+          colArr[i * 3 + 1] = col.g;
+          colArr[i * 3 + 2] = col.b;
+        }
+        pGeo.attributes.color.needsUpdate = true;
+        lGeo.attributes.color.needsUpdate = true;
+        rebuildLines();
+      };
+    })();
+
+    /* ============================================================
+       UI:  preloader, typed text, counters, reveal, tilt, progress
+    ============================================================ */
+    // Preloader
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600);
+    });
+
+    // Typed roles
+    (function () {
+      const el = document.getElementById('typed');
+      if (!el) return;
+      const roles = [
+        'Deep Learning Engineer',
+        'NLP & LLM Developer',
+        'Computer Vision Specialist',
+        'Production AI Builder'
+      ];
+      let r = 0, c = 0, deleting = false;
+      function tick() {
+        const word = roles[r];
+        el.textContent = word.substring(0, c);
+        if (!deleting && c < word.length) { c++; setTimeout(tick, 70); }
+        else if (!deleting && c === word.length) { deleting = true; setTimeout(tick, 1600); }
+        else if (deleting && c > 0) { c--; setTimeout(tick, 35); }
+        else { deleting = false; r = (r + 1) % roles.length; setTimeout(tick, 350); }
+      }
+      tick();
+    })();
+
+    // Reveal on scroll
+    const obs = new IntersectionObserver(e => {
+      e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('revealed'); obs.unobserve(x.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Animated counters
+    const counters = document.querySelectorAll('[data-count]');
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+        let cur = 0; const step = Math.max(1, target / 45);
+        const run = () => {
+          cur += step;
+          if (cur >= target) { el.textContent = target + suffix; }
+          else { el.textContent = Math.floor(cur) + suffix; requestAnimationFrame(run); }
+        };
+        run();
+        cObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => cObs.observe(c));
+
+    // Scroll progress
+    const prog = document.getElementById('scroll-progress');
+    addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const sc = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      prog.style.width = sc + '%';
+    }, { passive: true });
+
+    // 3D tilt on cards
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.tilt').forEach(card => {
+        card.addEventListener('pointermove', e => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          const rx = (py - 0.5) * -9;
+          const ry = (px - 0.5) * 12;
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+        });
+        card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+      });
+      // skill spotlight
+      document.querySelectorAll('.sk-block').forEach(b => {
+        b.addEventListener('pointermove', e => {
+          const r = b.getBoundingClientRect();
+          b.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+          b.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+        });
+      });
+    })();
+
+    // --- ENHANCEMENTS IMPLEMENTATION ---
+
+    // 1. Mobile Navigation Menu Toggle & Drawer
+    (function () {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navLinks.classList.toggle('active');
+          navToggle.classList.toggle('open');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.classList.remove('open');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            navToggle.classList.remove('open');
+          }
+        });
+      }
+    })();
+
+    // 2. Featured Projects Category Filtering
+    (function () {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projCards = document.querySelectorAll('.proj-card');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active from all and add to clicked
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          const filterValue = btn.dataset.filter;
+          
+          projCards.forEach(card => {
+            if (filterValue === 'all' || card.dataset.category === filterValue) {
+              card.style.display = 'flex';
+              // Force layout reflow before opacity change to trigger transition
+              card.offsetHeight;
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1) translateY(0)';
+              card.style.pointerEvents = 'auto';
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.95) translateY(12px)';
+              card.style.pointerEvents = 'none';
+              
+              // Hide from layout after transition completes
+              setTimeout(() => {
+                if (card.style.opacity === '0') {
+                  card.style.display = 'none';
+                }
+              }, 400);
+            }
+          });
+        });
+      });
+    })();
+
+    // 3. Dynamic Neural Theme Switcher
+    (function () {
+      const THEMES = {
+        default: {
+          accent: '#6c63ff',
+          accent2: '#8b7bff',
+          teal: '#34d9b3',
+          pink: '#ff6b9d',
+          nodes: [0x6c63ff, 0x34d9b3, 0xff6b9d]
+        },
+        cyberpunk: {
+          accent: '#ff007f',
+          accent2: '#ff5500',
+          teal: '#00f0ff',
+          pink: '#ffea00',
+          nodes: [0xff007f, 0x00f0ff, 0xffea00]
+        },
+        matrix: {
+          accent: '#00ff66',
+          accent2: '#00b33c',
+          teal: '#34d9b3',
+          pink: '#00ffff',
+          nodes: [0x00ff66, 0x34d9b3, 0x00ffff]
+        },
+        space: {
+          accent: '#00bfff',
+          accent2: '#1e40af',
+          teal: '#a855f7',
+          pink: '#ff6b9d',
+          nodes: [0x00bfff, 0xa855f7, 0xff6b9d]
+        }
+      };
+
+      const themeBtns = document.querySelectorAll('.theme-btn');
+      
+      function setTheme(themeName) {
+        const theme = THEMES[themeName];
+        if (!theme) return;
+        
+        // Update CSS Variables on root element
+        document.documentElement.style.setProperty('--accent', theme.accent);
+        document.documentElement.style.setProperty('--accent-2', theme.accent2);
+        document.documentElement.style.setProperty('--teal', theme.teal);
+        document.documentElement.style.setProperty('--pink', theme.pink);
+        
+        // Update Three.js canvas node and line colors
+        if (window.updateNeuralColors) {
+          window.updateNeuralColors(theme.nodes);
+        }
+        
+        // Update Active Button UI
+        themeBtns.forEach(btn => {
+          if (btn.dataset.theme === themeName) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        // Save choice in localStorage
+        localStorage.setItem('portfolio-accent-theme', themeName);
+      }
+
+      themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setTheme(btn.dataset.theme);
+        });
+      });
+
+      // Load saved theme or use default
+      const savedTheme = localStorage.getItem('portfolio-accent-theme');
+      if (savedTheme && THEMES[savedTheme]) {
+        // Wait a small moment for Three.js to finish initializing before changing colors
+        setTimeout(() => {
+          setTheme(savedTheme);
+        }, 100);
+      }
+    })();
+  </script>
+</body>
+
+</html>
