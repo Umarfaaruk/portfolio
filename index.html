@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umar Faaruk — AI/ML Engineer</title>
+  <meta name="description"
+    content="Portfolio of Mahmmed Umar Faaruk, AI/ML Engineer from Hyderabad. Deep learning, computer vision and cybersecurity projects.">
+  <meta property="og:title" content="Umar Faaruk — AI/ML Engineer">
+  <meta property="og:description" content="Futuristic portfolio — deep learning, computer vision & AI security.">
+  <meta property="og:type" content="website">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- 3D particle background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner container">
+      <a href="#home" class="logo" aria-label="Home">
+        <span class="logo-bracket">&lt;</span>UF<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" data-nav>Home</a></li>
+        <li><a href="#about" class="nav-link" data-nav>About</a></li>
+        <li><a href="#experience" class="nav-link" data-nav>Experience</a></li>
+        <li><a href="#projects" class="nav-link" data-nav>Projects</a></li>
+        <li><a href="#skills" class="nav-link" data-nav>Skills</a></li>
+        <li><a href="#contact" class="nav-link" data-nav>Contact</a></li>
+        <li class="nav-cta-wrap">
+          <a href="./assets/Umar-Faaruk-Resume.pdf" class="btn btn-outline btn-sm" download="Umar-Faaruk-Resume.pdf">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Resume
+          </a>
+        </li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"
+        aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero section" id="home">
+      <div class="container hero-inner">
+        <p class="hero-badge reveal">
+          <span class="pulse-dot" aria-hidden="true"></span> Open to opportunities
+        </p>
+
+        <h1 class="hero-title reveal">
+          Hi, I'm <span class="gradient-text">Umar Faaruk</span>
+        </h1>
+
+        <p class="hero-role reveal">
+          <span id="typed-text"></span><span class="cursor" aria-hidden="true">|</span>
+        </p>
+
+        <p class="hero-sub reveal">
+          B.Tech CSE-AIML graduate building intelligent systems — from an adaptive
+          AI-SIEM with <strong>99% threat-detection accuracy</strong> to real-time
+          fire &amp; smoke detection at <strong>60 FPS</strong>.
+        </p>
+
+        <div class="hero-cta reveal">
+          <a href="#projects" class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Get in Touch
+          </a>
+        </div>
+
+        <ul class="hero-socials reveal">
+          <li>
+            <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" aria-label="GitHub"
+              class="social-btn">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/mahmmed-umar-faaruk-15a04626a/" target="_blank" rel="noopener"
+              aria-label="LinkedIn" class="social-btn">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:umarfaaruk154246@gmail.com" aria-label="Email" class="social-btn">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <div class="hero-stats reveal">
+          <div class="stat">
+            <span class="stat-num" data-count="99" data-suffix="%">0</span>
+            <span class="stat-label">SIEM model accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="60" data-suffix=" FPS">0</span>
+            <span class="stat-label">Real-time detection</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="6" data-suffix="+">0</span>
+            <span class="stat-label">Projects built</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="2" data-suffix="">0</span>
+            <span class="stat-label">Internships</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll to About">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-tag reveal">// 01. about</p>
+        <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
+
+        <div class="about-grid">
+          <div class="about-photo reveal">
+            <div class="photo-frame tilt-card">
+              <img src="./assets/images/passphoto.jpg" alt="Portrait of Umar Faaruk" width="621" height="804"
+                loading="lazy">
+              <div class="photo-glow" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="about-text reveal">
+            <p>
+              I'm <strong>Mahmmed Umar Faaruk</strong>, an AI/ML engineer from Hyderabad, India, and a
+              B.Tech graduate in <strong>CSE&nbsp;(AI&nbsp;&amp;&nbsp;ML)</strong> from Sreyas Institute of
+              Engineering and Technology.
+            </p>
+            <p>
+              At <strong>Viswam AI</strong> I contributed to India's first Telugu LLM initiative alongside
+              Swecha, IIIT Hyderabad and Meta — building the Tune Buddy AI chatbot and Craft Connect, a
+              cultural data-collection platform, with FastAPI and Streamlit deployed to live cloud
+              environments.
+            </p>
+            <p>
+              My research spans adaptive AI security (federated learning + blockchain SIEM) and real-time
+              computer vision (YOLOv11 fire &amp; smoke detection). I love turning complex data into systems
+              that learn, adapt and ship.
+            </p>
+
+            <ul class="about-facts">
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Hyderabad, India
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+                B.Tech CSE-AIML, 2025
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                Available for full-time roles
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="expertise-grid">
+          <div class="glass-card tilt-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12.5 10h-1l-.25-.07A4.001 4.001 0 0 1 12 2z" />
+                <path d="M12 10v4" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="18" r="3" />
+                <path d="M12 14c-2.5 0-3.5 1.5-4.5 2.5M12 14c2.5 0 3.5 1.5 4.5 2.5" />
+              </svg>
+            </div>
+            <h3>Machine Learning</h3>
+            <p>Designing, training and evaluating ML &amp; deep learning models — CNN, LSTM, federated learning.</p>
+          </div>
+
+          <div class="glass-card tilt-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <h3>Computer Vision</h3>
+            <p>Real-time object detection with YOLOv11 &amp; PyTorch — 93.5% accuracy at 60 FPS on live video.</p>
+          </div>
+
+          <div class="glass-card tilt-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+            <h3>AI Security</h3>
+            <p>Adaptive SIEM systems with federated learning &amp; blockchain for evolving cyber threats.</p>
+          </div>
+
+          <div class="glass-card tilt-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <h3>Full-Stack AI Apps</h3>
+            <p>Shipping AI products with FastAPI, Django &amp; Streamlit — secure API gateways, live deployments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="section-tag reveal">// 02. journey</p>
+        <h2 class="section-title reveal">Experience &amp; <span class="gradient-text">Education</span></h2>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="glass-card">
+              <span class="timeline-date">May 2025 — Jul 2025</span>
+              <h3>AI Developer Intern · <span class="accent">Viswam AI</span></h3>
+              <p>
+                Contributed to India's first Telugu LLM with Swecha, IIIT Hyderabad &amp; Meta. Built the
+                Tune Buddy AI chatbot (Dify.ai + Streamlit) and Craft Connect for cultural data collection.
+                Designed a secure FastAPI + HTTPX gateway and shipped live deployments on Render and
+                Streamlit Cloud.
+              </p>
+              <div class="chip-row">
+                <span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">LLM</span><span
+                  class="chip">Dify.ai</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="glass-card">
+              <span class="timeline-date">Oct 2024 — Dec 2024</span>
+              <h3>Web Development Intern · <span class="accent">Intrainz</span></h3>
+              <p>
+                Developed a responsive hotel landing page and a personal portfolio. Built functional
+                calculator, e-commerce and to-do applications with HTML, CSS and JavaScript.
+              </p>
+              <div class="chip-row">
+                <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="glass-card">
+              <span class="timeline-date">2022 — 2025</span>
+              <h3>B.Tech, CSE (AI &amp; ML) · <span class="accent">Sreyas Institute of Engineering &amp;
+                  Technology</span></h3>
+              <p>
+                Specialized in machine learning, deep learning and artificial intelligence. Hyderabad, India.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="glass-card">
+              <span class="timeline-date">2019 — 2022</span>
+              <h3>Diploma, Civil Engineering · <span class="accent">Anurag Engineering College</span></h3>
+              <p>Kodad, Telangana.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section-tag reveal">// 03. work</p>
+        <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
+
+        <div class="filter-bar reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ai-ml">AI &amp; ML</button>
+          <button class="filter-btn" data-filter="vision">Computer Vision</button>
+          <button class="filter-btn" data-filter="security">Cybersecurity</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card tilt-card reveal" data-category="security">
+            <div class="project-img">
+              <img src="./assets/images/project-1.jpg" alt="Adaptive AI SIEM dashboard" loading="lazy">
+              <span class="project-badge">Flagship</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Cybersecurity · Deep Learning</p>
+              <h3>Adaptive AI-SIEM for Evolving Cyber Threats</h3>
+              <p>
+                Real-time threat detection with federated learning, blockchain and edge computing.
+                CNN model hit <strong>99% accuracy</strong> with a 0.01 false-positive rate on NSL-KDD
+                &amp; CICIDS2017.
+              </p>
+              <div class="chip-row">
+                <span class="chip">CNN · LSTM</span><span class="chip">Federated Learning</span><span
+                  class="chip">Django</span><span class="chip">Blockchain</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats" target="_blank"
+                  rel="noopener" class="btn btn-outline btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                  </svg>
+                  Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="vision">
+            <div class="project-img">
+              <img src="./assets/images/project-2.png" alt="Fire and smoke detection system" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Computer Vision · YOLOv11</p>
+              <h3>Fire &amp; Smoke Detection</h3>
+              <p>
+                Real-time fire and smoke detection on video feeds using YOLOv11 —
+                <strong>93.5% accuracy at 60 FPS</strong> with Twilio SMS alerting and full evaluation
+                pipeline (mAP, F1).
+              </p>
+              <div class="chip-row">
+                <span class="chip">PyTorch</span><span class="chip">YOLOv11</span><span class="chip">Twilio
+                  API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umarfaaruk/Fire-and-Smoke-detection" target="_blank" rel="noopener"
+                  class="btn btn-outline btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                  </svg>
+                  Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="ai-ml">
+            <div class="project-img">
+              <img src="./assets/images/project-3.jpg" alt="Tune Buddy AI chatbot" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-cat">AI &amp; ML · LLM</p>
+              <h3>Tune Buddy — AI Chatbot</h3>
+              <p>
+                Conversational AI chatbot built during the Telugu LLM initiative — Dify.ai integrated
+                into a Streamlit app with a secure FastAPI gateway, deployed to a live public environment.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Dify.ai</span><span class="chip">Streamlit</span><span class="chip">FastAPI</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="ai-ml">
+            <div class="project-img">
+              <img src="./assets/images/project-4.png" alt="Craft Connect application" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-cat">AI &amp; ML · Full-Stack</p>
+              <h3>Craft Connect</h3>
+              <p>
+                Streamlit application connected to the Swecha Corpus APIs for cultural data collection —
+                credentials and craft data securely proxied through a FastAPI + HTTPX gateway.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Streamlit</span><span class="chip">FastAPI</span><span class="chip">HTTPX</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="web">
+            <div class="project-img">
+              <img src="./assets/images/project-5.png" alt="E-commerce web application" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Web Development</p>
+              <h3>E-Commerce Web App</h3>
+              <p>
+                Responsive e-commerce storefront with product grid, cart interactions and clean UI —
+                built from scratch with vanilla HTML, CSS and JavaScript.
+              </p>
+              <div class="chip-row">
+                <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="web">
+            <div class="project-img">
+              <img src="./assets/images/project-6.png" alt="Hotel landing page" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Web Development</p>
+              <h3>Hotel Landing Page</h3>
+              <p>
+                Fully responsive marketing landing page for hotels with modern layout, booking CTA and
+                smooth interactions — delivered during the Intrainz internship.
+              </p>
+              <div class="chip-row">
+                <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="projects-more reveal">
+          <a href="https://github.com/Umarfaaruk?tab=repositories" target="_blank" rel="noopener"
+            class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+            </svg>
+            View All on GitHub
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="section-tag reveal">// 04. arsenal</p>
+        <h2 class="section-title reveal">Skills &amp; <span class="gradient-text">Certifications</span></h2>
+
+        <div class="skills-grid">
+          <div class="glass-card reveal">
+            <h3 class="skills-group-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              Languages
+            </h3>
+            <div class="chip-row">
+              <span class="chip chip-lg">Python</span>
+              <span class="chip chip-lg">Java</span>
+              <span class="chip chip-lg">JavaScript</span>
+              <span class="chip chip-lg">HTML</span>
+              <span class="chip chip-lg">CSS</span>
+            </div>
+          </div>
+
+          <div class="glass-card reveal">
+            <h3 class="skills-group-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              </svg>
+              AI / ML
+            </h3>
+            <div class="chip-row">
+              <span class="chip chip-lg">Machine Learning</span>
+              <span class="chip chip-lg">Deep Learning</span>
+              <span class="chip chip-lg">Computer Vision</span>
+              <span class="chip chip-lg">PyTorch</span>
+              <span class="chip chip-lg">Federated Learning</span>
+              <span class="chip chip-lg">LLMs</span>
+            </div>
+          </div>
+
+          <div class="glass-card reveal">
+            <h3 class="skills-group-title">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Frameworks &amp; Tools
+            </h3>
+            <div class="chip-row">
+              <span class="chip chip-lg">FastAPI</span>
+              <span class="chip chip-lg">Django</span>
+              <span class="chip chip-lg">Streamlit</span>
+              <span class="chip chip-lg">Git &amp; GitHub</span>
+              <span class="chip chip-lg">Render</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="certs-grid">
+          <div class="cert-card glass-card reveal">
+            <span class="cert-year">2025</span>
+            <h4>AWS APAC Solution Architecture</h4>
+            <p>Forage Virtual Experience</p>
+          </div>
+          <div class="cert-card glass-card reveal">
+            <span class="cert-year">2025</span>
+            <h4>Goldman Sachs Software Engineering</h4>
+            <p>Forage Virtual Experience</p>
+          </div>
+          <div class="cert-card glass-card reveal">
+            <span class="cert-year">2025</span>
+            <h4>Tata Data Visualization</h4>
+            <p>Forage Job Simulation</p>
+          </div>
+          <div class="cert-card glass-card reveal">
+            <span class="cert-year">2024</span>
+            <h4>Full Stack Web Development</h4>
+            <p>J&amp;T Tech Labs Workshop</p>
+          </div>
+          <div class="cert-card glass-card reveal">
+            <span class="cert-year">2023</span>
+            <h4>Machine Learning Workshop</h4>
+            <p>IEEE Sreyas</p>
+          </div>
+          <div class="cert-card glass-card reveal">
+            <span class="cert-year">2025</span>
+            <h4>Machine Learning Workshop</h4>
+            <p>Innomatics Research Labs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="section-tag reveal">// 05. contact</p>
+        <h2 class="section-title reveal">Let's <span class="gradient-text">Connect</span></h2>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <p class="contact-lead">
+              I'm actively looking for AI/ML engineering roles and open to freelance projects.
+              Drop a message — I usually reply within a day.
+            </p>
+
+            <ul class="contact-list">
+              <li>
+                <a href="mailto:umarfaaruk154246@gmail.com" class="contact-item">
+                  <span class="card-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Email</strong>
+                    umarfaaruk154246@gmail.com
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:+917675939955" class="contact-item">
+                  <span class="card-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Phone</strong>
+                    +91 76759 39955
+                  </span>
+                </a>
+              </li>
+              <li>
+                <div class="contact-item">
+                  <span class="card-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Location</strong>
+                    Hyderabad, India
+                  </span>
+                </div>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/mahmmed-umar-faaruk-15a04626a/" target="_blank" rel="noopener"
+                  class="contact-item">
+                  <span class="card-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>LinkedIn</strong>
+                    Mahmmed Umar Faaruk
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form glass-card reveal" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-name">Full name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Your name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" placeholder="you@example.com" required
+                  autocomplete="email">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="What's this about?">
+            </div>
+            <div class="form-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project or role…"
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="cf-submit">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              Send Message
+            </button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Mahmmed Umar Faaruk — built with passion in Hyderabad.</p>
+      <ul class="footer-socials">
+        <li><a href="https://github.com/Umarfaaruk" target="_blank" rel="noopener" aria-label="GitHub"
+            class="social-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+            </svg>
+          </a></li>
+        <li><a href="https://www.linkedin.com/in/mahmmed-umar-faaruk-15a04626a/" target="_blank" rel="noopener"
+            aria-label="LinkedIn" class="social-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+            </svg>
+          </a></li>
+        <li><a href="mailto:umarfaaruk154246@gmail.com" aria-label="Email" class="social-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"
+    integrity="sha512-6p9lGA4Cm89KiwN1CixiOVQU2H9e13LeYoN6/Hj/qoUhtrMW5vNiqQz9Z96Z7/I8u89ghL6SPBz9na5HFVzF3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./assets/js/three-bg.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
