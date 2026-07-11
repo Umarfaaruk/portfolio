@@ -106,6 +106,35 @@ button {
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
 }
 
+/* ===== Cursor glow (desktop only) ===== */
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle,
+      rgba(0, 212, 255, 0.07) 0%,
+      rgba(124, 58, 237, 0.05) 35%,
+      transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.cursor-active #cursor-glow {
+  opacity: 1;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  #cursor-glow {
+    display: none;
+  }
+}
+
 /* ===== Typography helpers ===== */
 .gradient-text {
   background: var(--gradient);
@@ -484,6 +513,7 @@ button {
 
 /* ===== Glass cards ===== */
 .glass-card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -491,6 +521,25 @@ button {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* light that follows the cursor across cards */
+.glass-card::after,
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(0, 212, 255, 0.09), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card:hover::after,
+.project-card:hover::after {
+  opacity: 1;
 }
 
 .glass-card:hover {
@@ -711,6 +760,7 @@ button {
 }
 
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--surface);

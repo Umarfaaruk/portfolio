@@ -180,6 +180,35 @@
     });
   }
 
+  /* ===== Cursor glow + card light tracking (desktop only) ===== */
+  if (finePointer && !reduceMotion) {
+    var glow = document.getElementById("cursor-glow");
+    var gx = window.innerWidth / 2, gy = window.innerHeight / 2;
+    var tx = gx, ty = gy;
+
+    document.addEventListener("mousemove", function (e) {
+      tx = e.clientX;
+      ty = e.clientY;
+      document.body.classList.add("cursor-active");
+    }, { passive: true });
+
+    (function glowLoop() {
+      gx += (tx - gx) * 0.12;
+      gy += (ty - gy) * 0.12;
+      glow.style.transform = "translate(" + (gx - 230) + "px," + (gy - 230) + "px)";
+      requestAnimationFrame(glowLoop);
+    })();
+
+    // per-card highlight position
+    document.querySelectorAll(".glass-card, .project-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - rect.left) + "px");
+        card.style.setProperty("--my", (e.clientY - rect.top) + "px");
+      }, { passive: true });
+    });
+  }
+
   /* ===== Contact form (mailto — works on a static site) ===== */
   var form = document.getElementById("contact-form");
   var note = document.getElementById("form-note");
