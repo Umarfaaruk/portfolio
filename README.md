@@ -17,9 +17,11 @@ Futuristic, 3D-animated personal portfolio of **Mahmmed Umar Faaruk** — AI/ML 
 
 | Project | Domain | Result |
 |---|---|---|
+| Fire & Smoke Detection (YOLOv11) | Computer Vision | 93.5% mAP @ 60 FPS — **published research** (AI Health Care book, in press) |
 | Adaptive AI-SIEM (federated learning + blockchain) | Cybersecurity | 99% accuracy, 0.01 FPR |
-| Fire & Smoke Detection (YOLOv11) | Computer Vision | 93.5% accuracy @ 60 FPS |
-| Tune Buddy AI Chatbot / Craft Connect | LLM / Full-stack AI | Live deployments (Viswam AI) |
+| Craft Connect (AWS + Supabase, offline-sync) | Cloud / Full-stack | Live on AWS ap-south-1 |
+| Tune Buddy AI Chatbot | GenAI / LLM | Live deployment (Viswam AI) |
+| Chess Buddy (Stockfish engine) | AI / Games | Live on Streamlit Cloud |
 
 ## Run locally
 

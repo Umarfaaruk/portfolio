@@ -52,6 +52,7 @@
   /* ===== Typing effect ===== */
   var roles = [
     "AI/ML Engineer",
+    "Published AI Researcher",
     "Deep Learning Developer",
     "Computer Vision Engineer",
     "Full-Stack AI Builder"
