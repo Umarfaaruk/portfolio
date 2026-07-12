@@ -308,6 +308,110 @@
     });
   });
 
+  /* ===== Scroll progress bar ===== */
+  var progressBar = document.getElementById("scroll-progress");
+  window.addEventListener("scroll", function () {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+  }, { passive: true });
+
+  /* ===== Rotating greeting (a nod to the Telugu LLM work) ===== */
+  var greetEl = document.getElementById("greet");
+  if (greetEl && !reduceMotion) {
+    var greetings = ["Hi", "నమస్తే", "Hello", "Namaste"];
+    var gi = 0;
+    setInterval(function () {
+      greetEl.classList.add("greet-out");
+      setTimeout(function () {
+        gi = (gi + 1) % greetings.length;
+        greetEl.textContent = greetings[gi];
+        greetEl.classList.remove("greet-out");
+      }, 320);
+    }, 3200);
+  }
+
+  /* ===== Live GitHub stats (fails silently offline) ===== */
+  (function () {
+    var fact = document.getElementById("gh-fact");
+    var text = document.getElementById("gh-fact-text");
+    if (!fact || !text || typeof fetch === "undefined") return;
+    fetch("https://api.github.com/users/Umarfaaruk")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && typeof d.public_repos === "number") {
+          text.textContent = d.public_repos + " public repos · " +
+            d.followers + " followers on GitHub";
+          fact.hidden = false;
+        }
+      })
+      .catch(function () { /* offline or rate-limited — fact stays hidden */ });
+  })();
+
+  /* ===== Matrix rain Easter egg (Telugu edition) ===== */
+  var matrixRaf = null;
+  var matrixCanvas = null;
+  var matrixTimeout = null;
+
+  function stopMatrix() {
+    if (matrixRaf) cancelAnimationFrame(matrixRaf);
+    matrixRaf = null;
+    if (matrixTimeout) clearTimeout(matrixTimeout);
+    matrixTimeout = null;
+    if (matrixCanvas) {
+      var c = matrixCanvas;
+      matrixCanvas = null;
+      c.classList.remove("on");
+      setTimeout(function () {
+        if (c.parentNode) c.parentNode.removeChild(c);
+      }, 650);
+    }
+  }
+
+  function startMatrix() {
+    if (matrixCanvas || reduceMotion) return;
+    var c = document.createElement("canvas");
+    c.id = "matrix-canvas";
+    document.body.appendChild(c);
+    matrixCanvas = c;
+
+    var ctx = c.getContext("2d");
+    var chars = "01అఆఇఈఉఊఎఏఐఒఓకఖగఘచఛజఝటఠడఢణతథదధనపఫబభమయరలవశషసహ01";
+    var fontSize = 16;
+    var cols, drops;
+
+    function size() {
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      cols = Math.floor(c.width / fontSize);
+      drops = new Array(cols).fill(1);
+    }
+    size();
+
+    var frame = 0;
+    function rain() {
+      matrixRaf = requestAnimationFrame(rain);
+      if (++frame % 2 !== 0) return; // ~30fps
+      ctx.fillStyle = "rgba(5, 8, 16, 0.09)";
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.font = fontSize + "px monospace";
+      for (var i = 0; i < cols; i++) {
+        var ch = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillStyle = Math.random() > 0.92 ? "#7c3aed" : "#00d4ff";
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > c.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    requestAnimationFrame(function () { c.classList.add("on"); });
+    rain();
+    // auto-dissolve so nobody gets stuck in the rain
+    matrixTimeout = setTimeout(stopMatrix, 15000);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") stopMatrix();
+  });
+
   /* ===== Timeline draw-in ===== */
   var timelineEl = document.querySelector(".timeline");
   if (timelineEl && "IntersectionObserver" in window && !reduceMotion) {
@@ -365,6 +469,8 @@
           "  resume       download resume (pdf)\n" +
           "  contact      email / linkedin / github\n" +
           "  whoami       identity check\n" +
+          "  namaste      a Telugu hello\n" +
+          "  matrix       enter the matrix (Esc exits)\n" +
           "  sudo hire-me you know you want to\n" +
           "  clear        wipe the screen"
         );
@@ -407,6 +513,21 @@
       },
       whoami: function () {
         print("visitor — possibly a recruiter with excellent taste 👀");
+      },
+      namaste: function () {
+        print("<span class='t-accent'>నమస్కారం!</span> 🙏 — I helped build India's first Telugu LLM\nat Viswam AI with Swecha, IIIT Hyderabad and Meta.");
+      },
+      matrix: function () {
+        if (reduceMotion) {
+          print("matrix disabled — your system prefers reduced motion, and I respect that.");
+          return;
+        }
+        print("<span class='t-ok'>wake up, neo...</span> the rain speaks Telugu here.\n(press <span class='t-accent'>Esc</span> or type <span class='t-accent'>matrix off</span> to exit — auto-exits in 15s)");
+        startMatrix();
+      },
+      "matrix off": function () {
+        stopMatrix();
+        print("back to reality.");
       },
       clear: function () {
         out.innerHTML = "";

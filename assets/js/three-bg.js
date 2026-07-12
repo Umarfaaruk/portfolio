@@ -241,11 +241,26 @@
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
+  // soft radial sprite so particles glow instead of rendering as squares
+  function makeGlowSprite() {
+    var c = document.createElement("canvas");
+    c.width = c.height = 64;
+    var g = c.getContext("2d");
+    var grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grd.addColorStop(0, "rgba(255,255,255,1)");
+    grd.addColorStop(0.35, "rgba(255,255,255,0.5)");
+    grd.addColorStop(1, "rgba(255,255,255,0)");
+    g.fillStyle = grd;
+    g.fillRect(0, 0, 64, 64);
+    return new THREE.CanvasTexture(c);
+  }
+
   var material = new THREE.PointsMaterial({
-    size: 2.6,
+    size: 3.8,
+    map: makeGlowSprite(),
     vertexColors: true,
     transparent: true,
-    opacity: 0.85,
+    opacity: 0.9,
     sizeAttenuation: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending
@@ -327,11 +342,21 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  var mouseX = 0, mouseY = 0;
+  var mouseX = 0, mouseY = 0, mouseActive = false;
   document.addEventListener("mousemove", function (e) {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    mouseActive = true;
   }, { passive: true });
+  document.addEventListener("mouseleave", function () {
+    mouseActive = false;
+  });
+
+  // scratch vectors for cursor repulsion (allocated once)
+  var repelRay = new THREE.Vector3();
+  var repelLocal = new THREE.Vector3();
+  var REPEL_R = 130;
+  var REPEL_R2 = REPEL_R * REPEL_R;
 
   window.addEventListener("resize", function () {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -372,6 +397,32 @@
     var arr = posAttr.array;
     for (var i = 0; i < arr.length; i++) {
       arr[i] += (target[i] - arr[i]) * 0.042;
+    }
+
+    // --- cursor repulsion: particles dodge the mouse ---
+    if (mouseActive && !isMobile) {
+      // project the cursor onto the particle cloud's plane (world z = -80)
+      repelRay.set(mouseX, -mouseY, 0.5).unproject(camera).sub(camera.position).normalize();
+      var planeDist = (particles.position.z - camera.position.z) / repelRay.z;
+      if (planeDist > 0) {
+        repelLocal.copy(camera.position).addScaledVector(repelRay, planeDist);
+        particles.updateMatrixWorld();
+        particles.worldToLocal(repelLocal);
+        var lx = repelLocal.x, ly = repelLocal.y, lz = repelLocal.z;
+        for (var p = 0; p < COUNT; p++) {
+          var dx = arr[p * 3] - lx;
+          var dy = arr[p * 3 + 1] - ly;
+          var dz = arr[p * 3 + 2] - lz;
+          var d2 = dx * dx + dy * dy + dz * dz;
+          if (d2 < REPEL_R2 && d2 > 0.01) {
+            var d = Math.sqrt(d2);
+            var f = (1 - d / REPEL_R) * 9;
+            arr[p * 3] += (dx / d) * f;
+            arr[p * 3 + 1] += (dy / d) * f;
+            arr[p * 3 + 2] += (dz / d) * f;
+          }
+        }
+      }
     }
     posAttr.needsUpdate = true;
 
