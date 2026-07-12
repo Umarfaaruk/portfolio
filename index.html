@@ -427,7 +427,7 @@
         <div class="project-grid">
           <article class="project-card tilt-card reveal" data-category="security">
             <div class="project-img">
-              <img src="./assets/images/project-1.jpg" alt="Adaptive AI SIEM dashboard" loading="lazy">
+              <img src="./assets/images/cover-siem.svg" alt="Adaptive AI SIEM dashboard" loading="lazy">
               <span class="project-badge">Flagship</span>
             </div>
             <div class="project-body">
@@ -457,7 +457,7 @@
 
           <article class="project-card tilt-card reveal" data-category="vision">
             <div class="project-img">
-              <img src="./assets/images/project-2.png" alt="Fire and smoke detection system" loading="lazy">
+              <img src="./assets/images/cover-fire.svg" alt="Fire and smoke detection system" loading="lazy">
               <span class="project-badge">Published Research</span>
             </div>
             <div class="project-body">
@@ -487,7 +487,7 @@
 
           <article class="project-card tilt-card reveal" data-category="ai-ml">
             <div class="project-img">
-              <img src="./assets/images/project-3.jpg" alt="Tune Buddy AI chatbot" loading="lazy">
+              <img src="./assets/images/cover-tunebuddy.svg" alt="Tune Buddy AI chatbot" loading="lazy">
             </div>
             <div class="project-body">
               <p class="project-cat">AI &amp; ML · LLM</p>
@@ -513,7 +513,7 @@
 
           <article class="project-card tilt-card reveal" data-category="ai-ml">
             <div class="project-img">
-              <img src="./assets/images/project-4.png" alt="Craft Connect application" loading="lazy">
+              <img src="./assets/images/cover-craft.svg" alt="Craft Connect application" loading="lazy">
             </div>
             <div class="project-body">
               <p class="project-cat">Cloud · Full-Stack</p>
@@ -541,7 +541,7 @@
 
           <article class="project-card tilt-card reveal" data-category="ai-ml">
             <div class="project-img">
-              <img src="./assets/images/project-7.png" alt="Chess Buddy AI chess application" loading="lazy">
+              <img src="./assets/images/cover-chess.svg" alt="Chess Buddy AI chess application" loading="lazy">
             </div>
             <div class="project-body">
               <p class="project-cat">AI &amp; ML · Game Engine</p>
@@ -569,7 +569,7 @@
 
           <article class="project-card tilt-card reveal" data-category="web">
             <div class="project-img">
-              <img src="./assets/images/project-5.png" alt="E-commerce web application" loading="lazy">
+              <img src="./assets/images/cover-ecom.svg" alt="E-commerce web application" loading="lazy">
             </div>
             <div class="project-body">
               <p class="project-cat">Web Development</p>
@@ -595,7 +595,7 @@
 
           <article class="project-card tilt-card reveal" data-category="web">
             <div class="project-img">
-              <img src="./assets/images/project-6.png" alt="Task manager web application" loading="lazy">
+              <img src="./assets/images/cover-tasks.svg" alt="Task manager web application" loading="lazy">
             </div>
             <div class="project-body">
               <p class="project-cat">Web Development</p>
@@ -957,10 +957,15 @@
 
   <div id="cursor-glow" aria-hidden="true"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"
-    integrity="sha512-6p9lGA4Cm89KiwN1CixiOVQU2H9e13LeYoN6/Hj/qoUhtrMW5vNiqQz9Z96Z7/I8u89ghL6SPBz9na5HFVzF3g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./assets/js/three-bg.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="./assets/js/three-bg.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
 

@@ -6,12 +6,15 @@ Futuristic, 3D-animated personal portfolio of **Mahmmed Umar Faaruk** — AI/ML 
 
 ## Highlights
 
-- 🌌 Interactive Three.js particle field with floating wireframe geometry and mouse parallax
-- 🧊 Glassmorphism UI with a cyan/violet neon design system (Space Grotesk + Inter)
-- ⚡ Typing effect, animated counters, scroll reveals and 3D tilt cards
-- 🗂️ Filterable project grid (AI & ML / Computer Vision / Cybersecurity / Web)
-- 📱 Fully responsive (mobile nav, adaptive grids) and accessible (focus states, reduced-motion support)
-- 🚀 Zero build step — pure HTML/CSS/JS, deploys straight to GitHub Pages
+- 🌌 Three.js **r160 (ES modules + import maps)** with **UnrealBloom post-processing** — cinematic glow
+- 🧠 Particle field that morphs into 7 formations as you scroll (sphere → galaxy → DNA helix → grid → torus knot → cube lattice → vortex), with neural synapse lines and cursor-repulsion physics
+- ⌨️ Interactive terminal playground (16 commands, incl. a Telugu Matrix rain Easter egg)
+- 🎨 Custom HUD-style SVG project covers — no stock imagery
+- ⚡ Boot preloader, decoder text effect, kinetic split-character titles, magnetic buttons, custom cursor ring
+- 🆕 Latest CSS: scroll-driven animations (`animation-timeline: view()`), `@property` animated conic borders
+- 📊 Live GitHub stats via public API; JSON-LD structured data; custom 404
+- 📱 Fully responsive and accessible (focus states, reduced-motion and no-WebGL fallbacks)
+- 🚀 Zero build step — deploys straight to GitHub Pages
 
 ## Featured work
 

@@ -226,10 +226,16 @@
     });
   }
 
-  /* ===== Cursor glow + card light tracking (desktop only) ===== */
+  /* ===== Cursor glow + ring + card light tracking (desktop only) ===== */
   if (finePointer && !reduceMotion) {
     var glow = document.getElementById("cursor-glow");
+    var ring = document.createElement("div");
+    ring.id = "cursor-ring";
+    ring.setAttribute("aria-hidden", "true");
+    document.body.appendChild(ring);
+
     var gx = window.innerWidth / 2, gy = window.innerHeight / 2;
+    var rx = gx, ry = gy, rs = 1, rsTarget = 1;
     var tx = gx, ty = gy;
 
     document.addEventListener("mousemove", function (e) {
@@ -238,12 +244,33 @@
       document.body.classList.add("cursor-active");
     }, { passive: true });
 
+    document.addEventListener("mouseover", function (e) {
+      rsTarget = e.target.closest("a, button, input, textarea, .tilt-card") ? 1.9 : 1;
+    }, { passive: true });
+
     (function glowLoop() {
       gx += (tx - gx) * 0.12;
       gy += (ty - gy) * 0.12;
       glow.style.transform = "translate(" + (gx - 230) + "px," + (gy - 230) + "px)";
+      rx += (tx - rx) * 0.3;
+      ry += (ty - ry) * 0.3;
+      rs += (rsTarget - rs) * 0.18;
+      ring.style.transform = "translate(" + (rx - 18) + "px," + (ry - 18) + "px) scale(" + rs.toFixed(3) + ")";
       requestAnimationFrame(glowLoop);
     })();
+
+    // magnetic pull on primary buttons and social icons
+    document.querySelectorAll(".hero-cta .btn, .social-btn").forEach(function (btn) {
+      btn.addEventListener("mousemove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) * 0.18;
+        var dy = (e.clientY - r.top - r.height / 2) * 0.28;
+        btn.style.transform = "translate(" + dx.toFixed(1) + "px," + (dy - 2).toFixed(1) + "px)";
+      }, { passive: true });
+      btn.addEventListener("mouseleave", function () {
+        btn.style.transform = "";
+      });
+    });
 
     // per-card highlight position
     document.querySelectorAll(".glass-card, .project-card").forEach(function (card) {
@@ -307,6 +334,64 @@
       note.classList.remove("error");
     });
   });
+
+  /* ===== Decoder effect: name scrambles into place ===== */
+  (function () {
+    var nameEl = document.querySelector(".hero-title .gradient-text");
+    if (!nameEl || reduceMotion) return;
+    var final = nameEl.textContent;
+    var glyphs = "!<>-_\\/[]{}=+*^?#01";
+    var start = null;
+    var duration = 1100;
+
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var lock = Math.floor(p * final.length);
+      var s = final.slice(0, lock);
+      for (var i = lock; i < final.length; i++) {
+        s += final[i] === " " ? " " : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      nameEl.textContent = s;
+      if (p < 1) {
+        requestAnimationFrame(step);
+      } else {
+        nameEl.textContent = final;
+      }
+    }
+    setTimeout(function () { requestAnimationFrame(step); }, 600);
+  })();
+
+  /* ===== Kinetic section titles: characters stagger in ===== */
+  if (!reduceMotion) {
+    document.querySelectorAll(".section-title").forEach(function (title) {
+      var idx = 0;
+      function split(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+          if (child.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            child.textContent.split("").forEach(function (ch) {
+              if (ch.trim() === "") {
+                frag.appendChild(document.createTextNode(ch));
+                return;
+              }
+              var s = document.createElement("span");
+              s.className = "tchar";
+              s.style.setProperty("--i", idx++);
+              s.textContent = ch;
+              frag.appendChild(s);
+            });
+            node.replaceChild(frag, child);
+          } else if (child.nodeType === 1) {
+            // keep gradient words whole so the gradient spans the full word
+            child.classList.add("tchar");
+            child.style.setProperty("--i", idx++);
+          }
+        });
+      }
+      split(title);
+    });
+  }
 
   /* ===== Scroll progress bar ===== */
   var progressBar = document.getElementById("scroll-progress");

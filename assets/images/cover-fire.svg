@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Fire and smoke detection cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1e"/><stop offset="1" stop-color="#140f26"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/><stop offset="0.55" stop-color="#f97316"/><stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g stroke="#00d4ff" stroke-opacity="0.05">
+    <path d="M0 90H800M0 180H800M0 270H800M0 360H800"/>
+    <path d="M100 0V450M200 0V450M300 0V450M400 0V450M500 0V450M600 0V450M700 0V450"/>
+  </g>
+  <!-- flame -->
+  <path d="M400 120 C430 170 468 196 468 252 C468 306 438 336 400 336 C362 336 332 306 332 252 C332 222 348 204 362 186 C356 214 364 228 378 234 C370 196 382 156 400 120 Z"
+    fill="url(#flame)" fill-opacity="0.92" filter="url(#glow)"/>
+  <!-- detection bounding box -->
+  <g stroke="#00d4ff" stroke-width="2.5" fill="none">
+    <path d="M296 122 V92 H326"/><path d="M474 92 H504 V122"/>
+    <path d="M504 334 V364 H474"/><path d="M326 364 H296 V334"/>
+    <rect x="296" y="92" width="208" height="272" stroke-opacity="0.25" stroke-dasharray="6 8"/>
+  </g>
+  <rect x="296" y="60" width="132" height="26" rx="4" fill="#00d4ff" fill-opacity="0.16" stroke="#00d4ff" stroke-opacity="0.5"/>
+  <text x="306" y="78" font-family="Consolas,Menlo,monospace" font-size="15" fill="#00d4ff">FIRE&#160;&#160;0.94</text>
+  <!-- fps meter -->
+  <g transform="translate(580 300)">
+    <rect x="0" y="30" width="14" height="30" fill="#00d4ff" fill-opacity="0.4"/>
+    <rect x="22" y="18" width="14" height="42" fill="#00d4ff" fill-opacity="0.6"/>
+    <rect x="44" y="6" width="14" height="54" fill="url(#flame)"/>
+    <text x="0" y="82" font-family="Consolas,Menlo,monospace" font-size="14" fill="#94a3b8">60 FPS</text>
+  </g>
+  <g stroke="#00d4ff" stroke-width="2" stroke-opacity="0.55" fill="none">
+    <path d="M22 52 V22 H52"/><path d="M748 22 H778 V52"/>
+    <path d="M778 398 V428 H748"/><path d="M52 428 H22 V398"/>
+  </g>
+  <text x="34" y="416" font-family="Consolas,Menlo,monospace" font-size="17" fill="#00d4ff" fill-opacity="0.8">VISION://YOLOv11 · 93.5% mAP · PUBLISHED</text>
+</svg>
