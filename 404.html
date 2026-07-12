@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Neuron Not Found | Umar Faaruk</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #050810;
+      color: #f1f5f9;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      text-align: center;
+      padding: 24px;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    .code {
+      font-size: clamp(6rem, 22vw, 12rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, #00d4ff, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .msg {
+      font-family: Consolas, monospace;
+      color: #94a3b8;
+      margin: 18px 0 8px;
+      font-size: 1rem;
+    }
+
+    .msg span {
+      color: #f87171;
+    }
+
+    p.sub {
+      color: #94a3b8;
+      margin-bottom: 32px;
+    }
+
+    a.btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #00d4ff, #7c3aed);
+      color: #04101a;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0, 212, 255, 0.35);
+      transition: transform .2s ease, box-shadow .25s ease;
+    }
+
+    a.btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 212, 255, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="code">404</div>
+    <p class="msg">$ locate page ... <span>error: neuron not found</span></p>
+    <p class="sub">This route was pruned during training. Let's backpropagate.</p>
+    <a class="btn" href="/portfolio/">← Back to the portfolio</a>
+  </main>
+</body>
+
+</html>

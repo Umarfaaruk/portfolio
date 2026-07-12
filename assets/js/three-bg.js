@@ -188,6 +188,21 @@
     return a;
   }
 
+  function latticeFormation() {
+    var a = makeArray();
+    var n = Math.ceil(Math.cbrt(COUNT));
+    var spacing = 480 / n;
+    for (var i = 0; i < COUNT; i++) {
+      var x = i % n;
+      var y = Math.floor(i / n) % n;
+      var z = Math.floor(i / (n * n));
+      a[i * 3] = (x - (n - 1) / 2) * spacing + (Math.random() - 0.5) * 6;
+      a[i * 3 + 1] = (y - (n - 1) / 2) * spacing + (Math.random() - 0.5) * 6;
+      a[i * 3 + 2] = (z - (n - 1) / 2) * spacing - 60 + (Math.random() - 0.5) * 6;
+    }
+    return a;
+  }
+
   function vortexFormation() {
     var a = makeArray();
     for (var i = 0; i < COUNT; i++) {
@@ -202,10 +217,10 @@
   }
 
   // section id -> formation, in page order
-  var sectionOrder = ["home", "about", "experience", "projects", "skills", "contact"];
+  var sectionOrder = ["home", "about", "experience", "projects", "skills", "terminal", "contact"];
   var formations = [
     sphereFormation(), galaxyFormation(), helixFormation(),
-    gridFormation(), knotFormation(), vortexFormation()
+    gridFormation(), knotFormation(), latticeFormation(), vortexFormation()
   ];
 
   var positions = new Float32Array(formations[0]); // start at sphere
@@ -239,6 +254,55 @@
   var particles = new THREE.Points(geometry, material);
   particles.position.z = -80;
   scene.add(particles);
+
+  /* ============================================================
+     NEURAL SYNAPSE LINES — connect nearby particles
+     ============================================================ */
+  var LINK_N = isMobile ? 60 : 130;      // particles considered for links
+  var MAX_SEGS = isMobile ? 220 : 520;   // segment cap
+  var LINK_DIST2 = 68 * 68;
+
+  var linePositions = new Float32Array(MAX_SEGS * 6);
+  var lineGeo = new THREE.BufferGeometry();
+  lineGeo.setAttribute("position", new THREE.BufferAttribute(linePositions, 3));
+  lineGeo.setDrawRange(0, 0);
+
+  var lineMat = new THREE.LineBasicMaterial({
+    color: 0x00d4ff,
+    transparent: true,
+    opacity: 0.14,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  var lines = new THREE.LineSegments(lineGeo, lineMat);
+  lines.position.z = -80; // match the particle cloud
+  scene.add(lines);
+  var linePosAttr = lineGeo.getAttribute("position");
+
+  function updateLines(arr) {
+    var seg = 0;
+    for (var i = 0; i < LINK_N && seg < MAX_SEGS; i++) {
+      var ix = arr[i * 3], iy = arr[i * 3 + 1], iz = arr[i * 3 + 2];
+      for (var j = i + 1; j < LINK_N && seg < MAX_SEGS; j++) {
+        var dx = ix - arr[j * 3];
+        var dy = iy - arr[j * 3 + 1];
+        var dz = iz - arr[j * 3 + 2];
+        if (dx * dx + dy * dy + dz * dz < LINK_DIST2) {
+          var o = seg * 6;
+          linePositions[o] = ix;
+          linePositions[o + 1] = iy;
+          linePositions[o + 2] = iz;
+          linePositions[o + 3] = arr[j * 3];
+          linePositions[o + 4] = arr[j * 3 + 1];
+          linePositions[o + 5] = arr[j * 3 + 2];
+          seg++;
+        }
+      }
+    }
+    lineGeo.setDrawRange(0, seg * 2);
+    linePosAttr.needsUpdate = true;
+  }
 
   /* ============================================================
      SCROLL + MOUSE STATE
@@ -285,6 +349,7 @@
      ============================================================ */
   var clock = new THREE.Clock();
   var posAttr = geometry.getAttribute("position");
+  var frameCount = 0;
 
   function animate() {
     requestAnimationFrame(animate);
@@ -312,6 +377,11 @@
 
     particles.rotation.y = t * 0.055;
     particles.rotation.x = Math.sin(t * 0.11) * 0.08;
+    lines.rotation.copy(particles.rotation);
+
+    // refresh synapse links every third frame (cheap O(n²) on a small subset)
+    frameCount++;
+    if (frameCount % 3 === 0) updateLines(arr);
 
     // --- AI core: alive in the hero, sinks away as you scroll ---
     var coreVis = Math.max(0, 1 - heroProgress * 1.15);

@@ -8,8 +8,30 @@
   <meta name="description"
     content="Portfolio of Mahmmed Umar Faaruk, AI/ML Engineer from Hyderabad. Deep learning, computer vision and cybersecurity projects.">
   <meta property="og:title" content="Umar Faaruk — AI/ML Engineer">
-  <meta property="og:description" content="Futuristic portfolio — deep learning, computer vision & AI security.">
+  <meta property="og:description" content="Futuristic 3D portfolio — deep learning, computer vision & AI security.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://umarfaaruk.github.io/portfolio/">
+  <meta property="og:image" content="https://umarfaaruk.github.io/portfolio/assets/images/passphoto.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#050810">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mahmmed Umar Faaruk",
+    "jobTitle": "AI/ML Engineer",
+    "email": "mailto:umarfaaruk154246@gmail.com",
+    "url": "https://umarfaaruk.github.io/portfolio/",
+    "image": "https://umarfaaruk.github.io/portfolio/assets/images/passphoto.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN" },
+    "alumniOf": "Sreyas Institute of Engineering and Technology",
+    "knowsAbout": ["Machine Learning", "Deep Learning", "Computer Vision", "Large Language Models", "AI Security"],
+    "sameAs": [
+      "https://github.com/Umarfaaruk",
+      "https://www.linkedin.com/in/mahmmed-umar-faaruk-15a04626a/"
+    ]
+  }
+  </script>
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +43,15 @@
 </head>
 
 <body>
+
+  <!-- Boot-sequence preloader (CSS failsafe hides it even if JS never runs) -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-logo"><span class="logo-bracket">&lt;</span>UF<span class="logo-bracket">/&gt;</span></div>
+      <div class="pre-lines" id="pre-lines"></div>
+      <div class="pre-bar"><span class="pre-fill"></span></div>
+    </div>
+  </div>
 
   <!-- 3D particle background -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
@@ -164,8 +195,22 @@
       </a>
     </section>
 
+    <!-- ===== TECH TICKER ===== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>PYTHON</span><span>◆</span><span>PYTORCH</span><span>◆</span><span>YOLOv11</span><span>◆</span>
+        <span>FASTAPI</span><span>◆</span><span>AWS</span><span>◆</span><span>LANGCHAIN</span><span>◆</span>
+        <span>SUPABASE</span><span>◆</span><span>FEDERATED LEARNING</span><span>◆</span><span>OPENCV</span><span>◆</span>
+        <span>LLM FINE-TUNING</span><span>◆</span><span>SCIKIT-LEARN</span><span>◆</span><span>STREAMLIT</span><span>◆</span>
+        <span>PYTHON</span><span>◆</span><span>PYTORCH</span><span>◆</span><span>YOLOv11</span><span>◆</span>
+        <span>FASTAPI</span><span>◆</span><span>AWS</span><span>◆</span><span>LANGCHAIN</span><span>◆</span>
+        <span>SUPABASE</span><span>◆</span><span>FEDERATED LEARNING</span><span>◆</span><span>OPENCV</span><span>◆</span>
+        <span>LLM FINE-TUNING</span><span>◆</span><span>SCIKIT-LEARN</span><span>◆</span><span>STREAMLIT</span><span>◆</span>
+      </div>
+    </div>
+
     <!-- ===== ABOUT ===== -->
-    <section class="section" id="about">
+    <section class="section" id="about" data-num="01">
       <div class="container">
         <p class="section-tag reveal">// 01. about</p>
         <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
@@ -291,7 +336,7 @@
     </section>
 
     <!-- ===== EXPERIENCE ===== -->
-    <section class="section" id="experience">
+    <section class="section" id="experience" data-num="02">
       <div class="container">
         <p class="section-tag reveal">// 02. journey</p>
         <h2 class="section-title reveal">Experience &amp; <span class="gradient-text">Education</span></h2>
@@ -357,7 +402,7 @@
     </section>
 
     <!-- ===== PROJECTS ===== -->
-    <section class="section" id="projects">
+    <section class="section" id="projects" data-num="03">
       <div class="container">
         <p class="section-tag reveal">// 03. work</p>
         <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
@@ -580,7 +625,7 @@
     </section>
 
     <!-- ===== SKILLS ===== -->
-    <section class="section" id="skills">
+    <section class="section" id="skills" data-num="04">
       <div class="container">
         <p class="section-tag reveal">// 04. arsenal</p>
         <h2 class="section-title reveal">Skills &amp; <span class="gradient-text">Certifications</span></h2>
@@ -716,10 +761,35 @@
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section class="section" id="contact">
+    <!-- ===== TERMINAL PLAYGROUND ===== -->
+    <section class="section" id="terminal" data-num="05">
       <div class="container">
-        <p class="section-tag reveal">// 05. contact</p>
+        <p class="section-tag reveal">// 05. playground</p>
+        <h2 class="section-title reveal">Talk to the <span class="gradient-text">Terminal</span></h2>
+
+        <div class="term glass-card reveal">
+          <div class="term-bar">
+            <span class="term-dot term-dot-r" aria-hidden="true"></span>
+            <span class="term-dot term-dot-y" aria-hidden="true"></span>
+            <span class="term-dot term-dot-g" aria-hidden="true"></span>
+            <span class="term-title">umar@portfolio: ~</span>
+          </div>
+          <div class="term-body" id="term-body">
+            <div id="term-out" aria-live="polite"></div>
+            <div class="term-input-line">
+              <label class="term-prompt" for="term-input">visitor@umar:~$</label>
+              <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+                placeholder="type 'help' and press Enter" aria-label="Terminal command input">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact" data-num="06">
+      <div class="container">
+        <p class="section-tag reveal">// 06. contact</p>
         <h2 class="section-title reveal">Let's <span class="gradient-text">Connect</span></h2>
 
         <div class="contact-grid">
