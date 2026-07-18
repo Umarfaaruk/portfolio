@@ -20,6 +20,9 @@ Futuristic, 3D-animated personal portfolio of **Mahmmed Umar Faaruk** — AI/ML 
 
 | Project | Domain | Result |
 |---|---|---|
+| [EduOnx](https://eduonx.in) — AI learning platform | Freelance / EdTech | Live client site on custom domain |
+| [Jobly](https://jobly-pearl.vercel.app) — ATS resumes & job matching | Freelance / AI product | Live |
+| [Café Spice](https://qr-table-ordering-system.vercel.app), [Founder & Growth](https://founder-growth-website.vercel.app), [Aerowash](https://aerowash-lac.vercel.app), [Aura Villa](https://villa-demo-lemon.vercel.app) | Freelance / web | Live client & concept sites |
 | Fire & Smoke Detection (YOLOv11) | Computer Vision | 93.5% mAP @ 60 FPS — **published research** (AI Health Care book, in press) |
 | Adaptive AI-SIEM (federated learning + blockchain) | Cybersecurity | 99% accuracy, 0.01 FPR |
 | Craft Connect (AWS + Supabase, offline-sync) | Cloud / Full-stack | Live on AWS ap-south-1 |

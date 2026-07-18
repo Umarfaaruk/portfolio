@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Cafe Spice QR ordering system cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1e"/><stop offset="1" stop-color="#141026"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g stroke="#00d4ff" stroke-opacity="0.05">
+    <path d="M0 90H800M0 180H800M0 270H800M0 360H800"/>
+    <path d="M100 0V450M200 0V450M300 0V450M400 0V450M500 0V450M600 0V450M700 0V450"/>
+  </g>
+  <!-- QR code -->
+  <g transform="translate(238 118)" filter="url(#glow)">
+    <rect x="0" y="0" width="200" height="200" rx="14" fill="none" stroke="url(#acc)" stroke-width="3"/>
+    <g fill="#00d4ff">
+      <rect x="22" y="22" width="52" height="52" rx="6" fill="none" stroke="#00d4ff" stroke-width="6"/>
+      <rect x="126" y="22" width="52" height="52" rx="6" fill="none" stroke="#00d4ff" stroke-width="6"/>
+      <rect x="22" y="126" width="52" height="52" rx="6" fill="none" stroke="#00d4ff" stroke-width="6"/>
+      <rect x="38" y="38" width="20" height="20"/><rect x="142" y="38" width="20" height="20"/><rect x="38" y="142" width="20" height="20"/>
+      <rect x="100" y="30" width="14" height="14"/><rect x="100" y="58" width="14" height="14"/>
+      <rect x="126" y="100" width="14" height="14"/><rect x="154" y="100" width="14" height="14"/><rect x="100" y="100" width="14" height="14"/>
+      <rect x="112" y="126" width="14" height="14"/><rect x="140" y="140" width="14" height="14"/>
+      <rect x="126" y="164" width="14" height="14"/><rect x="164" y="126" width="14" height="14"/><rect x="164" y="164" width="14" height="14"/>
+      <rect x="100" y="152" width="14" height="14"/>
+    </g>
+  </g>
+  <!-- phone with order -->
+  <g transform="translate(500 108)">
+    <rect x="0" y="0" width="120" height="226" rx="18" fill="none" stroke="url(#acc)" stroke-width="3" filter="url(#glow)"/>
+    <rect x="14" y="22" width="92" height="10" rx="5" fill="#94a3b8" fill-opacity="0.6"/>
+    <g fill="#00d4ff" fill-opacity="0.15" stroke="#00d4ff" stroke-opacity="0.4">
+      <rect x="14" y="46" width="92" height="34" rx="7"/>
+      <rect x="14" y="88" width="92" height="34" rx="7"/>
+      <rect x="14" y="130" width="92" height="34" rx="7"/>
+    </g>
+    <rect x="14" y="178" width="92" height="28" rx="14" fill="url(#acc)"/>
+    <text x="60" y="197" text-anchor="middle" font-family="Consolas,Menlo,monospace" font-size="13" fill="#04101a">ORDER</text>
+  </g>
+  <!-- scan beam -->
+  <line x1="438" y1="218" x2="500" y2="218" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 6"/>
+  <text x="300" y="356" font-family="Consolas,Menlo,monospace" font-size="15" fill="#94a3b8">TABLE 07 · scan &#8594; order</text>
+  <g stroke="#00d4ff" stroke-width="2" stroke-opacity="0.55" fill="none">
+    <path d="M22 52 V22 H52"/><path d="M748 22 H778 V52"/>
+    <path d="M778 398 V428 H748"/><path d="M52 428 H22 V398"/>
+  </g>
+  <text x="34" y="416" font-family="Consolas,Menlo,monospace" font-size="17" fill="#00d4ff" fill-opacity="0.8">POS://CAFE-SPICE · QR TABLE ORDERING</text>
+</svg>

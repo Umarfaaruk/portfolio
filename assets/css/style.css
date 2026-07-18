@@ -1060,6 +1060,16 @@ body.cursor-active #cursor-glow {
 }
 
 /* ===== Projects ===== */
+.projects-intro {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: -22px 0 30px;
+}
+
+.projects-intro strong {
+  color: var(--primary);
+}
+
 .filter-bar {
   display: flex;
   flex-wrap: wrap;

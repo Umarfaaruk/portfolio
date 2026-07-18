@@ -547,6 +547,7 @@
           "  about        who is umar?\n" +
           "  skills       tech stack\n" +
           "  projects     featured work\n" +
+          "  freelance    live client sites\n" +
           "  experience   internships\n" +
           "  education    degree & college\n" +
           "  publication  published research\n" +
@@ -568,11 +569,26 @@
       },
       projects: function () {
         print(
+          "<span class='t-accent'>freelance (live)</span> — type <span class='t-accent'>freelance</span> for links\n" +
+          "  EduOnx · Jobly · Café Spice QR · Founder & Growth · Aerowash · Aura Villa\n" +
+          "<span class='t-accent'>research & personal</span>\n" +
           "1. Adaptive AI-SIEM — 99% acc, federated learning + blockchain\n   " +
           LINK("https://github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats", "github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats") +
           "\n2. Fire & Smoke Detection — 93.5% mAP @ 60 FPS <span class='t-ok'>[published]</span>\n   " +
           LINK("https://github.com/Umarfaaruk/Fire-and-Smoke-detection", "github.com/Umarfaaruk/Fire-and-Smoke-detection") +
           "\n3. Craft Connect — AWS + Supabase, offline-sync\n4. Tune Buddy — LLM chatbot (Dify.ai)\n5. Chess Buddy — Stockfish engine + Streamlit"
+        );
+      },
+      freelance: function () {
+        print(
+          "<span class='t-ok'>live client work</span> — click to open:\n" +
+          "  " + LINK("https://eduonx.in", "eduonx.in") + "  — AI learning platform (custom domain)\n" +
+          "  " + LINK("https://jobly-pearl.vercel.app", "jobly") + "  — ATS resumes & job matching\n" +
+          "  " + LINK("https://qr-table-ordering-system.vercel.app", "café spice") + "  — QR table ordering\n" +
+          "  " + LINK("https://founder-growth-website.vercel.app", "founder & growth") + "  — VA services site\n" +
+          "  " + LINK("https://aerowash-lac.vercel.app", "aerowash") + "  — waterless car wash, hyd\n" +
+          "  " + LINK("https://villa-demo-lemon.vercel.app", "aura villa") + "  — luxury stays concept\n" +
+          "hiring for a project? run <span class='t-accent'>sudo hire-me</span>"
         );
       },
       experience: function () {

@@ -99,7 +99,7 @@
     <section class="hero section" id="home">
       <div class="container hero-inner">
         <p class="hero-badge reveal">
-          <span class="pulse-dot" aria-hidden="true"></span> Open to opportunities
+          <span class="pulse-dot" aria-hidden="true"></span> Freelancing — available for projects
         </p>
 
         <h1 class="hero-title reveal">
@@ -179,8 +179,8 @@
             <span class="stat-label">Real-time detection</span>
           </div>
           <div class="stat">
-            <span class="stat-num" data-count="7" data-suffix="+">0</span>
-            <span class="stat-label">Projects built</span>
+            <span class="stat-num" data-count="6" data-suffix="">0</span>
+            <span class="stat-label">Live client sites</span>
           </div>
           <div class="stat">
             <span class="stat-num" data-count="1" data-suffix="">0</span>
@@ -283,7 +283,7 @@
                   <circle cx="12" cy="12" r="10" />
                   <path d="M12 6v6l4 2" />
                 </svg>
-                Available for full-time roles
+                Freelancing — open to projects &amp; roles
               </li>
             </ul>
           </div>
@@ -415,9 +415,14 @@
       <div class="container">
         <p class="section-tag reveal">// 03. work</p>
         <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="projects-intro reveal">
+          Currently <strong>freelancing</strong> — the first row is live client work you can click
+          through right now, followed by my AI/ML research and personal projects.
+        </p>
 
         <div class="filter-bar reveal" role="group" aria-label="Filter projects">
           <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="freelance">Freelance</button>
           <button class="filter-btn" data-filter="ai-ml">AI &amp; ML</button>
           <button class="filter-btn" data-filter="vision">Computer Vision</button>
           <button class="filter-btn" data-filter="security">Cybersecurity</button>
@@ -425,6 +430,191 @@
         </div>
 
         <div class="project-grid">
+          <article class="project-card tilt-card reveal" data-category="freelance">
+            <div class="project-img">
+              <img src="./assets/images/cover-eduonx.svg" alt="EduOnx AI-powered learning platform" loading="lazy">
+              <span class="project-badge">Client · Live</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Freelance · EdTech</p>
+              <h3>EduOnx — AI Learning Platform</h3>
+              <p>
+                AI-powered learning platform with AI tutoring, study tracking and personalized
+                learning paths — shipped for a client and running on its own domain,
+                <strong>eduonx.in</strong>.
+              </p>
+              <div class="chip-row">
+                <span class="chip">React · Vite</span><span class="chip">AI Tutoring</span><span
+                  class="chip">Custom Domain</span>
+              </div>
+              <div class="project-links">
+                <a href="https://eduonx.in" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Visit Live Site
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="freelance">
+            <div class="project-img">
+              <img src="./assets/images/cover-jobly.svg" alt="Jobly ATS resume and job matching platform" loading="lazy">
+              <span class="project-badge">Live</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Freelance · AI Product</p>
+              <h3>Jobly — ATS Resumes &amp; Job Matches</h3>
+              <p>
+                Upload a resume, get an <strong>ATS-safe rewrite</strong>, ranked job matches, an
+                application tracker and skill-gap suggestions — built for Indian freshers.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Next.js</span><span class="chip">ATS Engine</span><span class="chip">Job
+                  Matching</span>
+              </div>
+              <div class="project-links">
+                <a href="https://jobly-pearl.vercel.app" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Visit Live Site
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="freelance">
+            <div class="project-img">
+              <img src="./assets/images/cover-qrorder.svg" alt="Cafe Spice smart QR table ordering system" loading="lazy">
+              <span class="project-badge">Live</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Freelance · Restaurant Tech</p>
+              <h3>Café Spice — QR Table Ordering</h3>
+              <p>
+                Smart QR table-ordering system for restaurants — guests scan the table code, browse
+                the menu and place orders straight from their phone.
+              </p>
+              <div class="chip-row">
+                <span class="chip">QR Ordering</span><span class="chip">Mobile-First</span><span
+                  class="chip">Menu Flow</span>
+              </div>
+              <div class="project-links">
+                <a href="https://qr-table-ordering-system.vercel.app" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Visit Live Site
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="freelance">
+            <div class="project-img">
+              <img src="./assets/images/cover-founder.svg" alt="Founder and Growth virtual assistant services site" loading="lazy">
+              <span class="project-badge">Live</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Freelance · Business Site</p>
+              <h3>Founder &amp; Growth — VA Services</h3>
+              <p>
+                Conversion-focused site for a virtual-assistant business — clear service offering
+                and copy aimed at founders and small businesses who need reliable behind-the-scenes help.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Next.js</span><span class="chip">Landing</span><span class="chip">Conversion
+                  Copy</span>
+              </div>
+              <div class="project-links">
+                <a href="https://founder-growth-website.vercel.app" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Visit Live Site
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="freelance">
+            <div class="project-img">
+              <img src="./assets/images/cover-aerowash.svg" alt="Aerowash waterless car wash service site" loading="lazy">
+              <span class="project-badge">Live</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Freelance · Local Business</p>
+              <h3>Aerowash — Waterless Car Wash</h3>
+              <p>
+                Booking-focused site for a doorstep <strong>waterless car-wash</strong> service in
+                Hyderabad — eco-friendly positioning, mobile-first layout and a clear book-now flow.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Local SEO</span><span class="chip">Booking CTA</span><span
+                  class="chip">Mobile-First</span>
+              </div>
+              <div class="project-links">
+                <a href="https://aerowash-lac.vercel.app" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Visit Live Site
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-card reveal" data-category="freelance">
+            <div class="project-img">
+              <img src="./assets/images/cover-villa.svg" alt="Aura Villa luxury rentals concept site" loading="lazy">
+              <span class="project-badge">Live</span>
+            </div>
+            <div class="project-body">
+              <p class="project-cat">Freelance · Luxury Travel</p>
+              <h3>Aura Villa — Luxury Stays</h3>
+              <p>
+                Immersive concept site for high-end private villa rentals — editorial visuals and a
+                concierge-style presentation built to win over a premium audience.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Next.js</span><span class="chip">Luxury UI</span><span class="chip">Concept
+                  Demo</span>
+              </div>
+              <div class="project-links">
+                <a href="https://villa-demo-lemon.vercel.app" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Visit Live Site
+                </a>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card tilt-card reveal" data-category="security">
             <div class="project-img">
               <img src="./assets/images/cover-siem.svg" alt="Adaptive AI SIEM dashboard" loading="lazy">
