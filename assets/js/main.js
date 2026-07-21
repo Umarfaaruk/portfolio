@@ -570,7 +570,7 @@
       projects: function () {
         print(
           "<span class='t-accent'>freelance (live)</span> — type <span class='t-accent'>freelance</span> for links\n" +
-          "  EduOnx · Jobly · Café Spice QR · Founder & Growth · Aerowash · Aura Villa\n" +
+          "  EduOnx · Jobly · Café Spice QR · Bazaar Premier · Founder & Growth · Aerowash · Aura Villa\n" +
           "<span class='t-accent'>research & personal</span>\n" +
           "1. Adaptive AI-SIEM — 99% acc, federated learning + blockchain\n   " +
           LINK("https://github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats", "github.com/Umarfaaruk/Adaptive-AI-SIEM-for-Cyber-Threats") +
@@ -585,6 +585,7 @@
           "  " + LINK("https://eduonx.in", "eduonx.in") + "  — AI learning platform (custom domain)\n" +
           "  " + LINK("https://jobly-pearl.vercel.app", "jobly") + "  — ATS resumes & job matching\n" +
           "  " + LINK("https://qr-table-ordering-system.vercel.app", "café spice") + "  — QR table ordering\n" +
+          "  " + LINK("https://bazaar-premier.vercel.app", "bazaar premier") + "  — dubai classifieds marketplace\n" +
           "  " + LINK("https://founder-growth-website.vercel.app", "founder & growth") + "  — VA services site\n" +
           "  " + LINK("https://aerowash-lac.vercel.app", "aerowash") + "  — waterless car wash, hyd\n" +
           "  " + LINK("https://villa-demo-lemon.vercel.app", "aura villa") + "  — luxury stays concept\n" +
