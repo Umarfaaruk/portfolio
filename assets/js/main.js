@@ -96,11 +96,10 @@
 
   /* ===== Typing effect ===== */
   var roles = [
+    "Freelance Web & AI Developer",
     "AI/ML Engineer",
     "Published AI Researcher",
-    "Deep Learning Developer",
-    "Computer Vision Engineer",
-    "Full-Stack AI Builder"
+    "Full-Stack Product Builder"
   ];
   var typedEl = document.getElementById("typed-text");
 
@@ -496,6 +495,31 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") stopMatrix();
   });
+
+  /* ===== Services scroll-line (ref: video_portfolio tag cards) ===== */
+  (function () {
+    var wrap = document.getElementById("svc-wrap");
+    var fill = document.getElementById("svc-line-fill");
+    if (!wrap || !fill) return;
+    var cards = wrap.querySelectorAll(".svc-card");
+
+    function updateLine() {
+      var r = wrap.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var progress = Math.min(1, Math.max(0, (vh * 0.72 - r.top) / r.height));
+      fill.style.height = (progress * 100).toFixed(2) + "%";
+      var tipY = r.top + progress * r.height;
+      cards.forEach(function (c) {
+        c.classList.toggle("svc-active", tipY >= c.getBoundingClientRect().top + 46);
+      });
+    }
+    window.addEventListener("scroll", updateLine, { passive: true });
+    updateLine();
+    if (reduceMotion) {
+      fill.style.height = "100%";
+      cards.forEach(function (c) { c.classList.add("svc-active"); });
+    }
+  })();
 
   /* ===== Timeline draw-in ===== */
   var timelineEl = document.querySelector(".timeline");

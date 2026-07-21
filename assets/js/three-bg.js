@@ -224,11 +224,10 @@ function init(renderer) {
     return a;
   }
 
-  const sectionOrder = ["home", "about", "experience", "projects", "skills", "terminal", "contact"];
-  const formations = [
-    sphereFormation(), galaxyFormation(), helixFormation(),
-    gridFormation(), knotFormation(), latticeFormation(), vortexFormation()
-  ];
+  const sectionOrder = ["home", "services", "work", "projects", "about", "experience", "skills", "terminal", "contact"];
+  const sphere = sphereFormation(), galaxy = galaxyFormation(), helix = helixFormation(),
+    grid = gridFormation(), knot = knotFormation(), lattice = latticeFormation(), vortex = vortexFormation();
+  const formations = [sphere, grid, galaxy, knot, helix, grid, vortex, lattice, vortex];
 
   const positions = new Float32Array(formations[0]);
   const colors = makeArray();
