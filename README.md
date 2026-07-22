@@ -6,10 +6,11 @@ Futuristic, 3D-animated personal portfolio of **Mahmmed Umar Faaruk** — AI/ML 
 
 ## Highlights
 
-- 🌌 Three.js **r160 (ES modules + import maps)** with **UnrealBloom post-processing** — cinematic glow
-- 🧠 Particle field that morphs into 7 formations as you scroll (sphere → galaxy → DNA helix → grid → torus knot → cube lattice → vortex), with neural synapse lines and cursor-repulsion physics
-- ⌨️ Interactive terminal playground (16 commands, incl. a Telugu Matrix rain Easter egg)
-- 🎨 Custom HUD-style SVG project covers — no stock imagery
+- 🎨 Light **editorial** design — big **Fraunces** serif display type, generous whitespace, freelance-first layout
+- 🌌 Three.js **r160 (ES modules + import maps)** background — particle field that morphs into 7 formations as you scroll (sphere → galaxy → DNA helix → grid → torus knot → cube lattice → vortex), recolored for light theme, with neural synapse lines and cursor-repulsion physics
+- 🧩 Services section with a scroll-driven progress line + numbered client-work case-study rows
+- ⌨️ Interactive terminal playground (17 commands, incl. a Telugu Matrix rain Easter egg)
+- 🖼️ Custom HUD-style SVG project covers — no stock imagery
 - ⚡ Boot preloader, decoder text effect, kinetic split-character titles, magnetic buttons, custom cursor ring
 - 🆕 Latest CSS: scroll-driven animations (`animation-timeline: view()`), `@property` animated conic borders
 - 📊 Live GitHub stats via public API; JSON-LD structured data; custom 404
