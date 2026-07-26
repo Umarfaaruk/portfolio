@@ -21,8 +21,9 @@ Futuristic, 3D-animated personal portfolio of **Mahmmed Umar Faaruk** — AI/ML 
 
 | Project | Domain | Result |
 |---|---|---|
-| [EduOnx](https://eduonx.in) — AI learning platform | Freelance / EdTech | Live client site on custom domain |
+| [Krishna House of Fine Jewellery](https://krishna-house-of-fine-jewellery.vercel.app) | Freelance / luxury retail | Live client site |
 | [Jobly](https://jobly-pearl.vercel.app) — ATS resumes & job matching | Freelance / AI product | Live |
+| [Raya](https://raya-by-the-house-of-namya-demo.vercel.app), [Salt & Pepper Fusion](https://salt-pepper-fusion.vercel.app) | Freelance / D2C & hospitality | Live |
 | [Café Spice](https://qr-table-ordering-system.vercel.app), [Bazaar Premier](https://bazaar-premier.vercel.app), [Founder & Growth](https://founder-growth-website.vercel.app), [Aerowash](https://aerowash-lac.vercel.app), [Aura Villa](https://villa-demo-lemon.vercel.app) | Freelance / web | Live client & concept sites |
 | Fire & Smoke Detection (YOLOv11) | Computer Vision | 93.5% mAP @ 60 FPS — **published research** (AI Health Care book, in press) |
 | Adaptive AI-SIEM (federated learning + blockchain) | Cybersecurity | 99% accuracy, 0.01 FPR |

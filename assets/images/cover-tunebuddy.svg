@@ -1,31 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Tune Buddy AI chatbot cover">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0f1e"/><stop offset="1" stop-color="#101038"/>
+      <stop offset="0" stop-color="#0A0A0A"/><stop offset="1" stop-color="#161616"/>
     </linearGradient>
     <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#7c3aed"/>
+      <stop offset="0" stop-color="#F44A22"/><stop offset="1" stop-color="#FF8A4C"/>
     </linearGradient>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
   <rect width="800" height="450" fill="url(#bg)"/>
-  <g stroke="#00d4ff" stroke-opacity="0.05">
+  <g stroke="#F44A22" stroke-opacity="0.05">
     <path d="M0 90H800M0 180H800M0 270H800M0 360H800"/>
     <path d="M100 0V450M200 0V450M300 0V450M400 0V450M500 0V450M600 0V450M700 0V450"/>
   </g>
   <!-- user bubble -->
   <g filter="url(#glow)">
-    <rect x="180" y="110" width="250" height="64" rx="18" fill="none" stroke="#00d4ff" stroke-width="2.5"/>
-    <path d="M210 174 L198 196 L232 174 Z" fill="none" stroke="#00d4ff" stroke-width="2.5"/>
+    <rect x="180" y="110" width="250" height="64" rx="18" fill="none" stroke="#F44A22" stroke-width="2.5"/>
+    <path d="M210 174 L198 196 L232 174 Z" fill="none" stroke="#F44A22" stroke-width="2.5"/>
   </g>
-  <rect x="204" y="134" width="150" height="8" rx="4" fill="#00d4ff" fill-opacity="0.5"/>
-  <rect x="204" y="150" width="90" height="8" rx="4" fill="#00d4ff" fill-opacity="0.3"/>
+  <rect x="204" y="134" width="150" height="8" rx="4" fill="#F44A22" fill-opacity="0.5"/>
+  <rect x="204" y="150" width="90" height="8" rx="4" fill="#F44A22" fill-opacity="0.3"/>
   <!-- AI bubble -->
   <g filter="url(#glow)">
     <rect x="360" y="222" width="270" height="86" rx="18" fill="none" stroke="url(#acc)" stroke-width="3"/>
-    <path d="M600 308 L614 330 L578 308 Z" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+    <path d="M600 308 L614 330 L578 308 Z" fill="none" stroke="#FF8A4C" stroke-width="2.5"/>
   </g>
   <!-- waveform inside AI bubble -->
   <g transform="translate(388 265)" fill="url(#acc)">
@@ -46,10 +46,10 @@
   </g>
   <!-- sparkle -->
   <path d="M560 130 L570 158 L598 168 L570 178 L560 206 L550 178 L522 168 L550 158 Z" fill="url(#acc)" filter="url(#glow)"/>
-  <text x="238" y="345" font-family="Consolas,Menlo,monospace" font-size="16" fill="#94a3b8">&#3112;&#3118;&#3128;&#3149;&#3108;&#3143; · telugu llm initiative</text>
-  <g stroke="#00d4ff" stroke-width="2" stroke-opacity="0.55" fill="none">
+  <text x="238" y="345" font-family="Consolas,Menlo,monospace" font-size="16" fill="#8C8C8C">&#3112;&#3118;&#3128;&#3149;&#3108;&#3143; · telugu llm initiative</text>
+  <g stroke="#F44A22" stroke-width="2" stroke-opacity="0.55" fill="none">
     <path d="M22 52 V22 H52"/><path d="M748 22 H778 V52"/>
     <path d="M778 398 V428 H748"/><path d="M52 428 H22 V398"/>
   </g>
-  <text x="34" y="416" font-family="Consolas,Menlo,monospace" font-size="17" fill="#00d4ff" fill-opacity="0.8">LLM://TUNE-BUDDY · DIFY.AI · STREAMLIT</text>
+  <text x="34" y="416" font-family="Consolas,Menlo,monospace" font-size="17" fill="#F44A22" fill-opacity="0.8">LLM://TUNE-BUDDY · DIFY.AI · STREAMLIT</text>
 </svg>
