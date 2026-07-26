@@ -31,20 +31,19 @@ function init(renderer) {
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xf4f2ec);
-  scene.fog = new THREE.FogExp2(0xf4f2ec, 0.0011);
+  scene.background = new THREE.Color(0x0a0a0a);
+  scene.fog = new THREE.FogExp2(0x0a0a0a, 0.0011);
 
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 3000);
   camera.position.z = 460;
 
   const isMobile = window.innerWidth < 768;
 
-  /* ---------- post-processing ----------
-     Bloom is disabled on the light theme: UnrealBloom brightens pixels above a
-     luminance threshold, and the near-white background sits above it — so bloom
-     would wash the whole scene into a haze. Plain render keeps particles crisp. */
+  /* ---------- post-processing: cinematic bloom (desktop) ----------
+     Re-enabled for the dark theme — bloom needs a ground darker than its
+     luminance threshold, which #0a0a0a satisfies. */
   let composer = null;
-  if (false) {
+  if (!isMobile) {
     composer = new EffectComposer(renderer);
     composer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     composer.setSize(window.innerWidth, window.innerHeight);
@@ -66,8 +65,8 @@ function init(renderer) {
   const fresnelMat = new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
-      uColorA: { value: new THREE.Color(0x6d28d9) },
-      uColorB: { value: new THREE.Color(0x2563eb) }
+      uColorA: { value: new THREE.Color(0xf44a22) },
+      uColorB: { value: new THREE.Color(0xff8a4c) }
     },
     vertexShader: `
       varying vec3 vNormal;
@@ -91,7 +90,7 @@ function init(renderer) {
         gl_FragColor = vec4(col, rim * pulse * 0.85);
       }`,
     transparent: true,
-    blending: THREE.NormalBlending,
+    blending: THREE.AdditiveBlending,
     depthWrite: false
   });
 
@@ -99,13 +98,13 @@ function init(renderer) {
   core.add(new THREE.Mesh(new THREE.IcosahedronGeometry(coreScale, 3), fresnelMat));
 
   const shellMat = new THREE.MeshBasicMaterial({
-    color: 0x6d28d9, wireframe: true, transparent: true, opacity: 0.16
+    color: 0xf44a22, wireframe: true, transparent: true, opacity: 0.12
   });
   const shell = new THREE.Mesh(new THREE.IcosahedronGeometry(coreScale * 1.45, 1), shellMat);
   core.add(shell);
 
-  const ringMatA = new THREE.MeshBasicMaterial({ color: 0x6d28d9, transparent: true, opacity: 0.32 });
-  const ringMatB = new THREE.MeshBasicMaterial({ color: 0x2563eb, transparent: true, opacity: 0.34 });
+  const ringMatA = new THREE.MeshBasicMaterial({ color: 0xf44a22, transparent: true, opacity: 0.30 });
+  const ringMatB = new THREE.MeshBasicMaterial({ color: 0xff8a4c, transparent: true, opacity: 0.28 });
 
   const ringA = new THREE.Mesh(new THREE.TorusGeometry(coreScale * 2.1, 1.1, 8, 90), ringMatA);
   ringA.rotation.x = Math.PI / 2.25;
@@ -116,7 +115,7 @@ function init(renderer) {
   ringB.rotation.y = Math.PI / 5;
   core.add(ringB);
 
-  const sparkMat = new THREE.MeshBasicMaterial({ color: 0x6d28d9 });
+  const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffb08a });
   const sparks = [];
   for (let s = 0; s < 3; s++) {
     const spark = new THREE.Mesh(new THREE.SphereGeometry(2.6, 8, 8), sparkMat);
@@ -235,9 +234,9 @@ function init(renderer) {
   const positions = new Float32Array(formations[0]);
   const colors = makeArray();
   // darker inks so particles read against the light paper background
-  const cyan = new THREE.Color(0x6d28d9);   // violet
-  const violet = new THREE.Color(0x2563eb); // blue
-  const white = new THREE.Color(0x8b8299);  // muted slate
+  const cyan = new THREE.Color(0xf44a22);   // vermilion
+  const violet = new THREE.Color(0xff8a4c); // warm orange
+  const white = new THREE.Color(0x9aa4b0);  // cool grey
 
   for (let ci = 0; ci < COUNT; ci++) {
     const rnd = Math.random();
@@ -266,14 +265,14 @@ function init(renderer) {
   }
 
   const material = new THREE.PointsMaterial({
-    size: 3.4,
+    size: 3.6,
     map: makeGlowSprite(),
     vertexColors: true,
     transparent: true,
-    opacity: 0.62,
+    opacity: 0.85,
     sizeAttenuation: true,
     depthWrite: false,
-    blending: THREE.NormalBlending
+    blending: THREE.AdditiveBlending
   });
 
   const particles = new THREE.Points(geometry, material);
@@ -291,10 +290,10 @@ function init(renderer) {
   lineGeo.setDrawRange(0, 0);
 
   const lines = new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({
-    color: 0x6d28d9,
+    color: 0xf44a22,
     transparent: true,
-    opacity: 0.12,
-    blending: THREE.NormalBlending,
+    opacity: 0.13,
+    blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
   lines.position.z = -80;

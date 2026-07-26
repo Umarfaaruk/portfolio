@@ -95,12 +95,7 @@
   setActiveLink();
 
   /* ===== Typing effect ===== */
-  var roles = [
-    "Freelance Web & AI Developer",
-    "AI/ML Engineer",
-    "Published AI Researcher",
-    "Full-Stack Product Builder"
-  ];
+  var roles = ["SHIP.", "SELL.", "SCALE.", "LAST."];
   var typedEl = document.getElementById("typed-text");
 
   if (reduceMotion) {
