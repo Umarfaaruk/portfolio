@@ -581,14 +581,15 @@
         );
       },
       about: function () {
-        print("Mahmmed Umar Faaruk — AI/ML engineer from Hyderabad, India.\nB.Tech CSE (AI & ML), Sreyas Institute, 2025. Published researcher\nin deep-learning object detection. Builds systems that learn, adapt and ship.");
+        print("Mahmmed Umar Faaruk — AI/ML engineer & freelance web developer,\nHyderabad, India. B.Tech CSE (AI & ML), Sreyas Institute, 2025.\n11 client builds shipped · published researcher in deep-learning\nobject detection. Builds systems that learn, adapt and ship.");
       },
       skills: function () {
-        print("<span class='t-accent'>langs</span>   python · sql · javascript\n<span class='t-accent'>ml</span>      pytorch · cnn/lstm · yolov11 · opencv · federated learning\n<span class='t-accent'>genai</span>   prompt engineering · langchain · dify.ai · llm fine-tuning\n<span class='t-accent'>cloud</span>   aws · render · streamlit cloud · fastapi · docker\n<span class='t-accent'>db</span>      postgresql · supabase · firestore");
+        print("<span class='t-accent'>langs</span>   python · sql · javascript · typescript\n<span class='t-accent'>ml</span>      pytorch · cnn/lstm · yolov11 · opencv · nlp · federated learning\n<span class='t-accent'>genai</span>   prompt engineering · langchain · groq · dify.ai · llm fine-tuning\n<span class='t-accent'>web</span>     react · next.js · vite · tailwind css · firebase\n<span class='t-accent'>cloud</span>   aws · render · vercel · streamlit cloud · fastapi · django · docker\n<span class='t-accent'>db</span>      postgresql · supabase · firestore\n<span class='t-accent'>devops</span>  git · github actions ci/cd · rest api design · unit testing");
       },
       projects: function () {
         print(
-          "<span class='t-accent'>freelance (live)</span> — type <span class='t-accent'>freelance</span> for links\n" +
+          "<span class='t-accent'>client work</span> — type <span class='t-accent'>freelance</span> for links\n" +
+          "  Edunox (15k+ launch impressions) · Strategic Arc dashboard\n" +
           "  Krishna House · Jobly · Raya · Salt & Pepper · Bazaar Premier\n" +
           "  Café Spice · Aerowash · Founder & Growth · Aura Villa\n" +
           "<span class='t-accent'>research & personal</span>\n" +
@@ -601,7 +602,10 @@
       },
       freelance: function () {
         print(
-          "<span class='t-ok'>live client work</span> — click to open:\n" +
+          "<span class='t-ok'>client work</span> — 11 builds shipped:\n" +
+          "  <span class='t-accent'>edunox</span>  — ai study platform · 15,000+ launch impressions\n" +
+          "  <span class='t-accent'>strategic arc</span>  — next.js analytics dashboard (private)\n" +
+          "live links below:\n" +
           "  " + LINK("https://krishna-house-of-fine-jewellery.vercel.app", "krishna house") + "  — heritage fine jewellery\n" +
           "  " + LINK("https://raya-by-the-house-of-namya-demo.vercel.app", "raya") + "  — luxury embroidered towels\n" +
           "  " + LINK("https://salt-pepper-fusion.vercel.app", "salt & pepper") + "  — premium catering\n" +
@@ -611,14 +615,15 @@
           "  " + LINK("https://founder-growth-website.vercel.app", "founder & growth") + "  — VA services site\n" +
           "  " + LINK("https://aerowash-lac.vercel.app", "aerowash") + "  — waterless car wash, hyd\n" +
           "  " + LINK("https://villa-demo-lemon.vercel.app", "aura villa") + "  — luxury stays concept\n" +
+          "in progress: a scroll-animated site for a yoga studio\n" +
           "hiring for a project? run <span class='t-accent'>sudo hire-me</span>"
         );
       },
       experience: function () {
-        print("<span class='t-accent'>Viswam AI</span> — AI Developer Intern (May–Jul 2025)\n  India's first Telugu LLM · AWS · FastAPI gateway · Supabase sync\n<span class='t-accent'>Intrainz</span> — Web Dev Intern (Oct–Dec 2024)\n  3 JavaScript apps: calculator, e-commerce, task manager");
+        print("<span class='t-accent'>Freelance</span> — Web Developer & AI Engineer (ongoing)\n  11 client builds · next.js dashboards · edunox · qr ordering saas\n<span class='t-accent'>Viswam AI</span> — AI Developer Intern (May–Jul 2025)\n  India's first Telugu LLM · AWS · FastAPI gateway · Supabase sync\n<span class='t-accent'>Intrainz</span> — Web Dev Intern (Oct–Dec 2024)\n  3 JavaScript apps: calculator, e-commerce, task manager");
       },
       education: function () {
-        print("B.Tech, Computer Science & Engineering (AI & ML)\nSreyas Institute of Engineering and Technology, Hyderabad — 2025");
+        print("B.Tech, Computer Science & Engineering (AI & ML)\nSreyas Institute of Engineering and Technology, Hyderabad\nGraduated July 2025");
       },
       publication: function () {
         print("<span class='t-ok'>Employing Deep Learning Paradigms for Fire and Smoke Detection</span>\nAccepted — AI Health Care book, 2025 (in press)\n+ technical articles on NumPy and Python functions (2026)");

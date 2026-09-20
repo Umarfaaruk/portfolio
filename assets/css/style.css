@@ -390,7 +390,7 @@ body.cursor-active #cursor-ring { opacity: 1; }
 
 .about-facts .icon { color: var(--primary); }
 
-.expertise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
 .expertise-grid h3 {
   font-family: var(--font-head); font-size: 1.25rem; font-weight: 600;
@@ -431,6 +431,20 @@ body.cursor-active #cursor-ring { opacity: 1; }
 }
 
 .timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+.tl-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 9px; }
+
+.tl-list li {
+  position: relative; padding-left: 20px;
+  color: var(--text-muted); font-size: 0.95rem; line-height: 1.62;
+}
+
+.tl-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.62em;
+  width: 6px; height: 6px; background: var(--primary); opacity: 0.85;
+}
+
+.tl-list li strong { color: var(--text); font-weight: 600; }
 
 /* ===== Chips ===== */
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -540,6 +554,21 @@ body.cursor-active #cursor-ring { opacity: 1; }
 .case-desc { color: var(--text-muted); font-size: 0.98rem; }
 .case-desc strong { color: var(--text); font-weight: 600; }
 .case-links { margin-top: 24px; }
+
+.case-note {
+  margin-top: 20px; font-family: var(--font-ui); font-size: 0.76rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+  border-left: 2px solid var(--primary); padding-left: 12px;
+}
+
+.work-inprogress {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 30px; padding: 16px 20px;
+  border: 1px dashed var(--border-2); border-radius: var(--radius);
+  color: var(--text-muted); font-size: 0.95rem;
+}
+
+.work-inprogress strong { color: var(--text); font-weight: 600; }
 
 /* ===== Research grid ===== */
 .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 38px; }
