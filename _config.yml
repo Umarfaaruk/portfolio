@@ -1,0 +1,18 @@
+# GitHub Pages (Jekyll) configuration.
+#
+# This is a plain static site — no layouts, no front matter. Jekyll copies
+# every file through untouched. The only job of this file is to keep the
+# job-search working files out of the published site; they stay in git.
+#
+# The entries after `resumes` are Jekyll's own defaults, restated because
+# setting `exclude` replaces the default list rather than adding to it.
+
+exclude:
+  - resumes
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
